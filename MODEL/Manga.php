@@ -6,6 +6,7 @@
         private ?string $nome;
         private ?int $volume;
         private ?string $descricao;
+        private ?string $resumo;
         private ?float $avaliacao;
         private ?string $genero;
         private ?int $quantidadesRequisitada;
@@ -29,6 +30,10 @@
 
         public function getDescricao(){
             return $this->descricao;
+        }
+
+        public function getResumo(){
+            return $this->resumo;
         }
 
         public function getAvaliacao(){
@@ -58,6 +63,10 @@
 
         public function setDescricao(string $descricao){
             $this->descricao = $descricao;
+        }
+
+        public function setResumo(string $resumo){
+            $this->resumo = $resumo;
         }
 
         public function setAvaliacao(float $avaliacao){

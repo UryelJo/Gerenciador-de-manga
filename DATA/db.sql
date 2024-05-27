@@ -24,6 +24,7 @@ CREATE TABLE `Manga` (
     `nome` varchar(50) NOT NULL,
     `volume` int(11) NOT NULL,
     `descricao` text NOT NULL,
+    `resumo` text NOT NULL,
     `avaliacao` double(2, 1) NOT NULL,
     `genero` varchar(30) NOT NULL,
     `quantidades_requisitada` int(11) NOT NULL,
@@ -70,11 +71,11 @@ INSERT INTO `Editora` (`nome`, `cnpj`) VALUES
 ('Kadokawa', '56789012000144');
 
 INSERT INTO `Manga` (`nome`, `volume`, `descricao`, `avaliacao`, `genero`, `quantidades_requisitada`, `autor_id`, `editora_id`) VALUES
-('Naruto', 1, 'Um jovem ninja que busca reconhecimento e sonha em se tornar Hokage.', 4.8, 'Ação', 500, 1, 1),
-('Dragon Ball', 1, 'A jornada de Goku em busca das esferas do dragão.', 4.7, 'Aventura', 300, 3, 1),
-('One Piece', 1, 'A história de Monkey D. Luffy em busca do tesouro One Piece.', 4.9, 'Aventura', 700, 5, 2),
-('Inuyasha', 1, 'Uma garota do presente que viaja para o passado e encontra um meio-yokai.', 4.5, 'Fantasia', 200, 4, 3),
-('Astro Boy', 1, 'Um robô com poderes incríveis criado pelo Dr. Tenma.', 4.6, 'Ficção Científica', 250, 2, 2);
+('Naruto', 1, 'Um jovem ninja que busca reconhecimento e sonha em se tornar Hokage.','Almir', 4.8, 'Ação', 500, 1, 1),
+('Dragon Ball', 1, 'A jornada de Goku em busca das esferas do dragão.','almir', 4.7, 'Aventura', 300, 3, 1),
+('One Piece', 1, 'A história de Monkey D. Luffy em busca do tesouro One Piece.','almir', 4.9, 'Aventura', 700, 5, 2),
+('Inuyasha', 1, 'Uma garota do presente que viaja para o passado e encontra um meio-yokai.','almir',  4.5, 'Fantasia', 200, 4, 3),
+('Astro Boy', 1, 'Um robô com poderes incríveis criado pelo Dr. Tenma.','almir', 4.6, 'Ficção Científica', 250, 2, 2);
 
 INSERT INTO `User` (`nome`) VALUES
 ('Alice'),
