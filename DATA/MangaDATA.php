@@ -6,7 +6,7 @@
     class MangaDATA{
         public function Select()
         {
-            $scriptSql = "Select * from Manga;";
+            $scriptSql = "Select * from manga;";
             $conexao = Conexao::conectarComDB();
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
@@ -31,7 +31,7 @@
         }
 
         public function SelectById(int $id){
-            $scriptSql = 'Select *from Manga where id=?;';
+            $scriptSql = 'Select *from manga where id=?;';
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
             $query->execute(array($id));
@@ -52,7 +52,7 @@
         }
 
         public function Insert(\MODEL\Manga $manga){
-            $scripSql = "INSERT INTO Manga(nome, volume, descricao, resumo, avaliacao, genero, quantidades_requisitadas) VALUES('
+            $scripSql = "INSERT INTO manga(nome, volume, descricao, resumo, avaliacao, genero, quantidades_requisitadas) VALUES('
             {$manga->getNome()}','
             {$manga->getVolume()}', '
             {$manga->getDescricao()}', '
@@ -71,7 +71,7 @@
         //oniotigago
 
         public function Update(\MODEL\Manga $manga){
-            $scripSql = "UPDATE Manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requesitada = ?;";
+            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requesitada = ?;";
 
             $conexao = Conexao::conectarComDB();
 
@@ -84,7 +84,7 @@
         }
 
         public function Delete(int $id){
-            $scriptSql = "delete from Manga WHERE id = ?;";
+            $scriptSql = "delete from manga WHERE id = ?;";
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
