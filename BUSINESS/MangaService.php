@@ -2,7 +2,6 @@
     namespace BUSINESS;
 
     include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\DATA\MangaDATA.php';
-    use DATA;
 
     class MangaService{
         public function SelectAll(){
@@ -23,12 +22,30 @@
             } else {
                 return $mangaSelecionado;
             }
-
         }
 
+        public function Insert(\MODEL\Manga $manga){
+            $dataManga = new \DATA\MangaDATA;
+            $newManga = $dataManga->Insert($manga);
+            if(empty($newManga)){
+                echo "Não foi possivel cadastrar mangá";
+            }
+            return $newManga;
+        }
 
+        public function Update(\MODEL\Manga $manga){
+            $dataManga = new \DATA\MangaDATA;
+            $updatedManga = $dataManga->Update($manga);
+            if(empty($updatedManga)){
+                echo "Não foi possivel atualizar mangá";
+            }
+            return $updatedManga;
+        }
 
-
+        public function Delete(int $id){
+            $dataManga = new \DATA\MangaDATA;
+            return $dataManga->Delete($id);
+        }
     }
 
 ?>
