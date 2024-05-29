@@ -5,7 +5,7 @@
     use \PDO;
 
     class Conexao{
-        private static $dbNome = 'servicos';
+        private static $dbNome = 'db';
         private static $dbHost = 'localhost';
         private static $dbUsuario = 'root';
         private static $dbSenha = '';
