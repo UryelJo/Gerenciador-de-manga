@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+* {
+    color: white;
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:"YOPQ" 300;
+    transition: 0.3s;
+}
+
+body {
+    background-image: url('../IMAGES/image.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+}
+
+label {
+    font-size: large;
+    font-weight: 200;
+}
+
+input {
+    font-size: large;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: rgba(255, 255, 255, 0);
+}
+input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    gap: 10px;
+    border: 1px solid white;
+}
+
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.button {
+    font-size: large;
+    cursor: pointer;
+    border: none;
+    border-right: 10px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #753100e0;
+}
+
+.button:hover {
+    transform: translateX(-10px);
+    border-right: 10px solid white;
+    background-color: #a55d29e0;
+}
