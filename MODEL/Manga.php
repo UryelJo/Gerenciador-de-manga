@@ -11,6 +11,9 @@
         private ?string $genero;
         private ?int $quantidadesRequisitada;
 
+        private Editora $editora;
+        private Autor $autor;
+
         //Construtor
         public function __construct(){}
 
@@ -80,6 +83,7 @@
         public function setQuantidadesRequisitada(int $quantidadesRequisitada){
             $this->quantidadesRequisitada = $quantidadesRequisitada;
         }
+
 
 
     }
