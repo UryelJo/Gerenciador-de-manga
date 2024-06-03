@@ -40,6 +40,8 @@ CREATE TABLE `manga` (
 CREATE TABLE `user` (
     `id` int(11) NOT NULL,
     `nome` varchar(50) NOT NULL,
+    `email` varchar(60) NOT NULL,
+    `senha` varchar(70) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -77,12 +79,10 @@ INSERT INTO `manga` (`nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `gener
 ('Inuyasha', 1, 'Uma garota do presente que viaja para o passado e encontra um meio-yokai.','almir',  4.5, 'Fantasia', 200, 4, 3),
 ('Astro Boy', 1, 'Um robô com poderes incríveis criado pelo Dr. Tenma.','almir', 4.6, 'Ficção Científica', 250, 2, 2);
 
-INSERT INTO `user` (`nome`) VALUES
-('Alice'),
-('Bob'),
-('Charlie'),
-('David'),
-('Eva');
+INSERT INTO `user` (`nome`, `email`, `senha`) VALUES
+('Uryel','uryeljodelucca11@gmail.com', '0b14bf70574539485fe4c2ba202f47b8' ),
+('Vitao', 'vitao@gmail.com', '31d356e7466ea208f517cd7afa1d75bd' ),
+('Almir', 'almirzada@gmail.com', '0dcfa9276dffa58e19c0d6c8b31c16d8' );
 
 INSERT INTO `user_manga` (`user_id`, `manga_id`) VALUES
 (1, 1),
@@ -91,9 +91,9 @@ INSERT INTO `user_manga` (`user_id`, `manga_id`) VALUES
 (2, 4),
 (3, 5),
 (3, 1),
-(4, 2),
-(5, 3),
-(5, 4),
-(4, 5);
+(2, 2),
+(1, 3),
+(3, 4),
+(1, 5);
 
 COMMIT;
