@@ -5,29 +5,22 @@
     include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\MODEL\User.php';
 
     class UserDATA{
-        public function Select()
-        {
-            $scriptSql = "Select * from User;";
+
+        public function SelectByEmail(string $email){
+            $scriptSql = 'Select *from user where email=?;';
             $conexao = Conexao::conectarComDB();
-            $todosOsRegistros = $conexao->query($scriptSql);
+            $query = $conexao->prepare($scriptSql);
+            $query->execute(array($email));
+            $registroUnico = $query->fetch(\PDO::FETCH_ASSOC);
             $conexao = Conexao::desconectarComDB();
 
-            foreach( $todosOsRegistros as $registroUnico){
-                $user = new \MODEL\User();
+            $user = new \MODEL\User();
+            $user->setId($registroUnico['id']);
+            $user->setNome($registroUnico['nome']);
+            $user->setEmail($registroUnico['email']);
+            $user->setSenha($registroUnico['senha']);
 
-                $user->setId($registroUnico['id']);
-                $user->setNome($registroUnico['nome']);
-                $user->setEmail($registroUnico['email']);
-                $user->setSenha($registroUnico['senha']);
-
-                $listaDeUsers[] = $user;
-            }
-
-            return $listaDeUsers;
-        }
-
-        public function SelectById(){
-
+            return $user;
         }
     }
 
