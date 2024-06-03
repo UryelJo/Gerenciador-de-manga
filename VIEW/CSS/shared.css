@@ -66,6 +66,6 @@ input:focus {
 
 .button:hover {
     transform: translateX(-10px);
-    border-right: 10px solid white;
+    border-right: 10px solid #FFAA6D;
     background-color: #a55d29e0;
 }
