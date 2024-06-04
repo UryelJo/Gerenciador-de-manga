@@ -87,12 +87,12 @@ INSERT INTO `user` (`nome`, `email`, `senha`) VALUES
 INSERT INTO `user_manga` (`user_id`, `manga_id`) VALUES
 (1, 1),
 (1, 3),
-(2, 2),
+(2, 1),
 (2, 4),
 (3, 5),
 (3, 1),
 (2, 2),
-(1, 3),
+(1, 2),
 (3, 4),
 (1, 5);
 

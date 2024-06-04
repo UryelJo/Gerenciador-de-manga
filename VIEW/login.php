@@ -22,7 +22,7 @@
 </head>
 <body>
     
-    <h1 style="font-si">Gerenciador de Mangás</h1>
+    <h1>Gerenciador de Mangás</h1>
     <form 
     method="post" 
     action="" 
