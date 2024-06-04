@@ -5,8 +5,9 @@
         $senha = $_POST['input-senha'];
         $email = $_POST['input-email'];
 
-        $userService = new \BUSINESS\UserService();
-        $userService::ValidarUsuario($email, $senha);
+        if (\BUSINESS\UserService::ValidarUsuario($email, $senha)) {
+            header('Location: http://localhost:8080/Gerenciador-de-manga/VIEW/tela-principal.php');
+        };
     }
 ?>
 
@@ -25,6 +26,7 @@
     method="post" 
     action="" 
     class="card col align-center"
+
     >
         <h2>Login</h2>
 

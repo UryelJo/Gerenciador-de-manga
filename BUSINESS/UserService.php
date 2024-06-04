@@ -5,6 +5,7 @@
     include_once '../MODEL/User.php';
 
     class UserService{
+        private static $usuario;
 
         public static function ValidarUsuario(string $email, string $senha){
             $DataUser = new \DATA\UserData;
@@ -14,11 +15,20 @@
             }
             
             if($userSelecionado->getSenha() == md5($senha)){
-                return $userSelecionado;
+                self::$usuario = $userSelecionado;
+                return true;
             } else {
-                echo "senha incorreta";
+                return false;
             }
 
+        }
+
+        public static function clearUser() {
+            self::$usuario = "";
+        }
+
+        public static function getUserName() {
+            return self::$usuario->getNome();
         }
     }
 ?>
