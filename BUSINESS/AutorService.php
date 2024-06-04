@@ -2,7 +2,7 @@
 
     namespace BUSINESS;
 
-    include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\DATA\AutorDATA.php';
+    include_once '../DATA/AutorDATA.php';
 
     class AutorService{
         public function SelectAll(){

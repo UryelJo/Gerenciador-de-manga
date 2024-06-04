@@ -1,3 +1,17 @@
+<?php
+    include '../BUSINESS/UserService.php';
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-senha']) && isset($_POST['input-email'])) {
+        $senha = $_POST['input-senha'];
+        $email = $_POST['input-email'];
+
+        $userService = new \BUSINESS\UserService();
+        $userService::ValidarUsuario($email, $senha);
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,14 +44,6 @@
         class="button"
         type="submit"
         > Logar </button>      
-
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-senha']) && isset($_POST['input-email'])) {
-            $senha = $_POST['input-senha'];
-            $email = $_POST['input-email'];
-        }
-        ?>
-
 
     </form>
 </body>

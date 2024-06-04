@@ -5,10 +5,10 @@
     use \PDO;
 
     class Conexao{
-        private static $dbNome = 'db';
-        private static $dbHost = 'localhost';
+        private static $dbNome = 'laboratorio';
+        private static $dbHost = '127.0.0.1:3306';
         private static $dbUsuario = 'root';
-        private static $dbSenha = '';
+        private static $dbSenha = '12345';
 
         private static $cont = null;
     

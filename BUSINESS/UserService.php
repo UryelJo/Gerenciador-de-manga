@@ -1,10 +1,12 @@
 <?php 
     namespace BUSINESS;
 
-    include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\DATA\UserData.php';
+    include_once '../DATA/UserData.php';
+    include_once '../MODEL/User.php';
 
     class UserService{
-        public function ValidarUsuario(string $email, string $senha){
+
+        public static function ValidarUsuario(string $email, string $senha){
             $DataUser = new \DATA\UserData;
             $userSelecionado = $DataUser->SelectByEmail($email);
             if(empty($userSelecionado)){

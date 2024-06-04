@@ -1,7 +1,7 @@
 <?php
     namespace BUSINESS;
 
-    include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\DATA\MangaDATA.php';
+    include_once '../DATA/MangaDATA.php';
 
     class MangaService{
         public function SelectAll(){

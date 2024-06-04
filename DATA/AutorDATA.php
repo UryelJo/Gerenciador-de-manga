@@ -1,8 +1,8 @@
 <?php
     namespace DATA;
 
-    include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\DATA\Conexao.php';
-    include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\MODEL\Autor.php';
+    include_once '../DATA/Conexao.php';
+    include_once '../MODEL/Autor.php';
 
     class AutorDATA
     {

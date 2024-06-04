@@ -1,7 +1,7 @@
 <?php
     namespace BUSINESS;
 
-    include_once 'C:\Users\Uryel\Documents\Programação\PHP\TrabalhoAlmir\DATA\EditoraDATA.php';
+    include_once '../DATA/EditoraDATA.php';
 
     class EditoraService{
         public function SelectAll(){
