@@ -62,13 +62,13 @@ INSERT INTO `autor` (`nome`, `idade`) VALUES
 ('Hayao Miyazaki', 82),
 ('Osamu Tezuka', 60),
 ('Akira Toriyama', 68),
-('Rumiko Takahashi', 66),
+('Gege Akutami', 23),
 ('Eiichiro Oda', 48);
 
 INSERT INTO `editora` (`nome`, `cnpj`) VALUES
 ('Shueisha', '12345678000100'),
 ('Kodansha', '23456789000111'),
-('Shogakukan', '34567890000122'),
+('Panini', '34567890000122'),
 ('Square Enix', '45678901000133'),
 ('Kadokawa', '56789012000144');
 
@@ -76,7 +76,7 @@ INSERT INTO `manga` (`nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `gener
 ('Naruto', 1, 'Um jovem ninja que busca reconhecimento e sonha em se tornar Hokage.','Almir', 4.8, 'Ação', 500, 1, 1),
 ('Dragon Ball', 1, 'A jornada de Goku em busca das esferas do dragão.','almir', 4.7, 'Aventura', 300, 3, 1),
 ('One Piece', 1, 'A história de Monkey D. Luffy em busca do tesouro One Piece.','almir', 4.9, 'Aventura', 700, 5, 2),
-('Inuyasha', 1, 'Uma garota do presente que viaja para o passado e encontra um meio-yokai.','almir',  4.5, 'Fantasia', 200, 4, 3),
+('Jujutsu Kaisen', 1, 'Jujutsu Kaisen é um anime e mangá que segue Yuji Itadori enquanto ele combate maldições com habilidades sobrenaturais após ingerir um dedo de um poderoso espírito maligno.','almir',  5.0, 'Ação', 999, 4, 3),
 ('Astro Boy', 1, 'Um robô com poderes incríveis criado pelo Dr. Tenma.','almir', 4.6, 'Ficção Científica', 250, 2, 2);
 
 INSERT INTO `user` (`nome`, `email`, `senha`) VALUES
