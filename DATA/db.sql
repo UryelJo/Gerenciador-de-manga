@@ -96,7 +96,7 @@ Goku cresce e continua sua busca pelas Esferas do Dragão, enfrentando vilões c
 
 <h3>Conclusão</h3>
 A série culmina com a derrota de Majin Buu e um salto temporal que mostra Goku continuando suas aventuras, agora com sua família, incluindo seu filho Gohan e seu neto Pan. A série termina com Goku participando de um novo Torneio de Artes Marciais, onde encontra Uub, a reencarnação de Buu, e decide treiná-lo.<br><br>
-', 4.7, 'Aventura', 300,'https://static.wikia.nocookie.net/dragonball/images/4/4b/DragonBallJapão1.jpg/revision/latest?cb=20211030193731&path-prefix=pt-br', 3, 1),
+', 4.7, 'Aventura', 300,'https://upload.wikimedia.org/wikipedia/pt/0/06/Dragon_Ball_vol._01.jpg', 3, 1),
 
 ('One Piece', 1, 'One Piece é um mangá japonês escrito e ilustrado por Eiichiro Oda. Publicado na revista Weekly Shonen Jump desde 1997, a história segue as aventuras de Monkey D. Luffy e sua tripulação de piratas, os Chapéus de Palha, em busca do tesouro lendário conhecido como One Piece, que tornará Luffy o Rei dos Piratas.','<h3>Premissa</h3>
 Monkey D. Luffy é um jovem pirata com a habilidade de esticar seu corpo como borracha, graças a ter comido uma Fruta do Diabo chamada Gomu Gomu no Mi. Inspirado por seu ídolo de infância, o pirata Shanks, Luffy sonha em encontrar o One Piece e se tornar o Rei dos Piratas. Para isso, ele deve navegar pela Grand Line e superar inúmeros desafios e inimigos.<br><br>
@@ -109,7 +109,7 @@ Ao longo da série, Luffy e sua tripulação enfrentam desafios cada vez maiores
 
 <h3>Conclusão</h3>
 A história de "One Piece" ainda está em andamento, com Luffy e sua tripulação se aproximando cada vez mais do tesouro One Piece e de enfrentar o imperador pirata Kaido, além de outros poderosos inimigos.<br><br>
-', 4.9, 'Aventura', 700,'https://static.wikia.nocookie.net/onepiece/images/0/0e/Volume_1.png/revision/latest?cb=20140106204057&path-prefix=pt', 5, 2),
+', 4.9, 'Aventura', 700,'https://upload.wikimedia.org/wikipedia/pt/f/ff/One_Piece_vol._01.jpg', 5, 2),
 ('Jujutsu Kaisen', 1, 'Jujutsu Kaisen é um mangá japonês escrito e ilustrado por Gege Akutami. Publicado na revista Weekly Shonen Jump desde 2018, a história segue Yuji Itadori, um estudante do ensino médio que se envolve no mundo do Jujutsu, a prática de exorcizar Maldições, seres sobrenaturais formados a partir de emoções negativas dos humanos.','<h3>Premissa</h3>
 Yuji Itadori é um estudante atlético e bem-humorado que vive com seu avô doente. Após a morte do avô, ele encontra um objeto amaldiçoado que atrai Maldições. Para salvar seus amigos, Yuji ingere o objeto, que é um dedo de Ryomen Sukuna, uma poderosa Maldição. Ele ganha habilidades sobrenaturais e se torna o receptáculo de Sukuna. Yuji é recrutado pelo Jujutsu High, uma escola de exorcistas, para aprender a combater Maldições e reunir os dedos de Sukuna para destruí-los.<br><br>
 
