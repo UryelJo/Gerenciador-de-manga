@@ -1,12 +1,16 @@
 <?php
     include '../BUSINESS/UserService.php';
+    
+    setcookie('nome', '', -1, '/'); 
+    setcookie('email', '', -1, '/'); 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-senha']) && isset($_POST['input-email'])) {
         $senha = $_POST['input-senha'];
         $email = $_POST['input-email'];
 
-        $userService = new \BUSINESS\UserService();
-        $userService::ValidarUsuario($email, $senha);
+        if (\BUSINESS\UserService::ValidarUsuario($email, $senha)) {
+            header('Location: http://localhost:8080/Gerenciador-de-manga/VIEW/tela-principal.php');
+        };
     }
 ?>
 
@@ -25,6 +29,7 @@
     method="post" 
     action="" 
     class="card col align-center"
+
     >
         <h2>Login</h2>
 
