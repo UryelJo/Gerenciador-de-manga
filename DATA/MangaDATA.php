@@ -22,7 +22,7 @@
                 $manga->setAvaliacao($registroUnico['avaliacao']);
                 $manga->setGenero($registroUnico['genero']);
                 $manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
-
+                $manga->setUrlCapa($registroUnico['url_capa']);
 
                 $listaDeMangas[] = $manga;
             }
@@ -47,19 +47,21 @@
             $manga->setAvaliacao($registroUnico['avaliacao']);
             $manga->setGenero($registroUnico['genero']);
             $manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
+            $manga->setUrlCapa($registroUnico['url_capa']);
 
             return $manga;
         }
 
         public function Insert(\MODEL\Manga $manga){
-            $scripSql = "INSERT INTO manga(nome, volume, descricao, resumo, avaliacao, genero, quantidades_requisitadas) VALUES('
+            $scripSql = "INSERT INTO manga(nome, volume, descricao, resumo, avaliacao, genero, quantidades_requisitadas, url_capa) VALUES('
             {$manga->getNome()}','
             {$manga->getVolume()}', '
             {$manga->getDescricao()}', '
             {$manga->getResumo()}', '
             {$manga->getAvaliacao()}', '
             {$manga->getGenero()}', '
-            {$manga->getQuantidadesRequisitada()}');";
+            {$manga->getQuantidadesRequisitada()}', '
+            {$manga->getUrlCapa()});";
 
             $conexao = Conexao::conectarComDB();
             $resultadoCadastro = $conexao->query($scripSql);
@@ -71,12 +73,12 @@
         //oniotigago
 
         public function Update(\MODEL\Manga $manga){
-            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requesitada = ?;";
+            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requesitada = ?, url_capa = ?;";
 
             $conexao = Conexao::conectarComDB();
 
             $query = $conexao->prepare($scripSql);
-            $resultadoUpdate = $query->execute(array($manga->getNome(), $manga->getVolume(), $manga->getDescricao(),$manga->getResumo(), $manga->getAvaliacao(), $manga->getGenero(), $manga->getQuantidadesRequisitada()));
+            $resultadoUpdate = $query->execute(array($manga->getNome(), $manga->getVolume(), $manga->getDescricao(),$manga->getResumo(), $manga->getAvaliacao(), $manga->getGenero(), $manga->getQuantidadesRequisitada(), $manga->getUrlCapa()));
 
             $conexao = Conexao::desconectarComDB();
 

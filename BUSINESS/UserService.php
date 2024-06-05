@@ -3,6 +3,7 @@
 
     include_once '../DATA/UserData.php';
     include_once '../MODEL/User.php';
+    
 
     class UserService{
 
@@ -10,13 +11,13 @@
             $DataUser = new \DATA\UserData;
             $userSelecionado = $DataUser->SelectByEmail($email);
             if(empty($userSelecionado)){
-                echo "usuario não encontrado";
+                echo "Usuario não encontrado";
             }
             
             if($userSelecionado->getSenha() == md5($senha)){
                 return $userSelecionado;
             } else {
-                echo "senha incorreta";
+                echo "Senha incorreta";
             }
 
         }

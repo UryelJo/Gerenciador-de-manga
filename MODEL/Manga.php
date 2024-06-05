@@ -10,6 +10,7 @@
         private ?float $avaliacao;
         private ?string $genero;
         private ?int $quantidadesRequisitada;
+        private ?string $url_capa;
 
         private Editora $editora;
         private Autor $autor;
@@ -51,6 +52,10 @@
             return $this->quantidadesRequisitada;
         }
 
+        public function getUrlCapa(){
+            return $this->url_capa;
+        }
+
         //Setters
         public function setId(int $id){
             $this->id = $id;
@@ -83,8 +88,9 @@
         public function setQuantidadesRequisitada(int $quantidadesRequisitada){
             $this->quantidadesRequisitada = $quantidadesRequisitada;
         }
-
-
-
+        
+        public function setUrlCapa(string $url_capa){
+            $this->url_capa = $url_capa;
+        }
     }
 ?>
