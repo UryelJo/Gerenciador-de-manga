@@ -74,7 +74,7 @@ INSERT INTO `editora` (`nome`, `cnpj`) VALUES
 ('Kadokawa', '56789012000144');
 
 INSERT INTO `manga` (`nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `genero`, `quantidades_requisitada`,`url_capa`, `autor_id`, `editora_id`) VALUES
-('Naruto', 1, '<h3>Premissa</h3>
+('Naruto', 1,'Naruto é um mangá japonês escrito e ilustrado por Masashi Kishimoto. Publicado originalmente na revista Weekly Shonen Jump de 1999 a 2014, a história segue as aventuras de Naruto Uzumaki, um jovem ninja que busca reconhecimento e sonha em se tornar o Hokage, o líder de sua aldeia, a Vila Oculta da Folha.', '<h3>Premissa</h3>
 Naruto Uzumaki é um garoto que vive na Vila Oculta da Folha (Konohagakure) e é desprezado por seus colegas de vila devido ao demônio raposa de nove caudas, Kurama, selado em seu corpo desde o seu nascimento. Para conquistar o respeito dos moradores da vila, Naruto sonha em se tornar o Hokage, o ninja mais forte e líder da vila.<br><br>
 
 <h3>Arco Inicial</h3>
@@ -88,7 +88,7 @@ A história culmina na Quarta Grande Guerra Ninja, onde as aldeias ninjas se une
 
 <h3>Conclusão</h3>
 Naruto finalmente se torna um herói reconhecido e, eventualmente, o Hokage. O mangá conclui com a redenção de Sasuke, a paz entre as aldeias ninjas e a nova geração de ninjas, incluindo os filhos de Naruto e seus amigos.<br><br>
-','Naruto é um mangá japonês escrito e ilustrado por Masashi Kishimoto. Publicado originalmente na revista Weekly Shonen Jump de 1999 a 2014, a história segue as aventuras de Naruto Uzumaki, um jovem ninja que busca reconhecimento e sonha em se tornar o Hokage, o líder de sua aldeia, a Vila Oculta da Folha.', 4.8, 'Ação', 500,'https://www.researchgate.net/profile/Marilurdes-Borges/publication/348637849/figure/fig5/AS:982232843948049@1611193967796/Figura-2-Capa-do-manga-Naruto-Shippuden.png', 1, 1),
+', 4.8, 'Ação', 500,'https://www.researchgate.net/profile/Marilurdes-Borges/publication/348637849/figure/fig5/AS:982232843948049@1611193967796/Figura-2-Capa-do-manga-Naruto-Shippuden.png', 1, 1),
 
 ('Dragon Ball', 1, 'Dragon Ball é um mangá japonês escrito e ilustrado por Akira Toriyama. Publicado originalmente na revista Weekly Shonen Jump de 1984 a 1995, a história segue as aventuras de Son Goku desde sua infância até a vida adulta, enquanto ele treina artes marciais e explora o mundo em busca das sete Esferas do Dragão, que podem invocar um dragão capaz de realizar desejos.','<h3>Premissa</h3>
 Son Goku é um garoto com uma cauda de macaco e força sobre-humana que vive nas montanhas. Um dia, ele encontra Bulma, uma jovem inteligente que está em busca das lendárias Esferas do Dragão. Juntos, eles embarcam em uma jornada para reunir as sete esferas e realizar seus desejos.<br><br>
