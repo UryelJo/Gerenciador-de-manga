@@ -1,5 +1,8 @@
 <?php
     include '../BUSINESS/UserService.php';
+    
+    setcookie('nome', '', -1, '/'); 
+    setcookie('email', '', -1, '/'); 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-senha']) && isset($_POST['input-email'])) {
         $senha = $_POST['input-senha'];

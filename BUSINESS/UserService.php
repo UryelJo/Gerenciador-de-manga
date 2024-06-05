@@ -15,6 +15,8 @@
             }
             
             if($userSelecionado->getSenha() == md5($senha)){
+                setcookie("nome", $userSelecionado->getNome(), time()+3600, "/","", 0);
+                setcookie("email", $email, time()+3600, "/", "", 0);
                 self::$usuario = $userSelecionado;
                 return true;
             } else {

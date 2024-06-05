@@ -50,8 +50,22 @@ input:focus {
     flex-direction: column;
 }
 
+.row {
+    display: flex;
+    flex-direction: row!important;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
 .align-center {
     align-items: center;
+}
+
+.w-50 {
+    padding: 20px;
+    width: 50%;
 }
 
 .button {
