@@ -6,21 +6,21 @@ CREATE DATABASE IF NOT EXISTS `db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4
 USE `db`;
 
 CREATE TABLE `autor` (
-    `id` int(11) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `nome` varchar(50) NOT NULL,
     `idade` int(11) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `editora` (
-    `id` int(11) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `nome` varchar(50) NOT NULL,
     `cnpj` varchar(14) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `manga` (
-    `id` int(11) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `nome` varchar(50) NOT NULL,
     `volume` int(11) NOT NULL,
     `descricao` text NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `manga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `user` (
-    `id` int(11) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `nome` varchar(50) NOT NULL,
     `email` varchar(60) NOT NULL,
     `senha` varchar(70) NOT NULL,
@@ -53,11 +53,6 @@ CREATE TABLE `user_manga` (
     CONSTRAINT `fk_user_manga_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`), 
     CONSTRAINT `fk_user_manga_manga` FOREIGN KEY (`manga_id`) REFERENCES `manga` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
-ALTER TABLE `autor` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT; 
-ALTER TABLE `editora` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT; 
-ALTER TABLE `manga` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT; 
-ALTER TABLE `user` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT; 
 
 INSERT INTO `autor` (`nome`, `idade`) VALUES
 ('Hayao Miyazaki', 82),
