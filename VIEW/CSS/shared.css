@@ -37,6 +37,17 @@ input:focus {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+textarea {
+    font-size: large;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: rgba(255, 255, 255, 0);
+}
+textarea:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 .card {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -98,4 +109,12 @@ input:focus {
     transform: translateX(-10px);
     border-right: 10px solid #FFAA6D;
     background-color: #a55d29e0;
+}
+
+.overflow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000000c4;
+    backdrop-filter: blur(10px);
 }

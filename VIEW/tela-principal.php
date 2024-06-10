@@ -21,7 +21,7 @@
         </h1>
     </div>
     <div class="col justify-center w-50" style="gap: 20px">
-        <button class="button" onclick="window.location.replace('')">
+        <button class="button" onclick="window.location.replace('mangas.php')">
             Mangás
         </button>
         <button class="button" onclick="window.location.replace('')">
