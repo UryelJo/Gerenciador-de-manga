@@ -16,6 +16,13 @@
             return $autor;
         }
 
+        public static function construtorComParametrosSemId( $nome, $idade){
+            $autor = new Autor();
+            $autor->setNome($nome);
+            $autor->setIdade($idade);
+            return $autor;
+        }
+
         public function getId(){
             return $this->id;
         }

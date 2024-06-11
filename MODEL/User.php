@@ -18,6 +18,14 @@
             return $user;
         }
 
+        public static function construtorComParametrosSemId( $nome, $email, $senha){
+            $user = new User();
+            $user->setNome($nome);
+            $user->setEmail($email);
+            $user->setSenha($senha);
+            return $user;
+        }
+
         public function getId(){
             return $this->id;
         }

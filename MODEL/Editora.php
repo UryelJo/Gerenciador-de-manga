@@ -16,6 +16,13 @@
             return $editora;
         }
 
+        public static function construtorComParametrosSemId( $nome, $cnpj){
+            $editora = new Editora();
+            $editora->setNome($nome);
+            $editora->setCnpj($cnpj);
+            return $editora;
+        }
+
         public function getId(){
             return $this->id;
         }

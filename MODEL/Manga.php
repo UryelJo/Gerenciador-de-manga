@@ -12,15 +12,25 @@
         private ?int $quantidadesRequisitada;
         private ?string $url_capa;
 
-        private Editora $editora;
-        private Autor $autor;
-
         //Construtor
         public function __construct(){}
 
         public static function construtorComParametros( $id,  $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa){
             $manga = new Manga();
             $manga->setId($id);
+            $manga->setNome($nome);
+            $manga->setVolume($volume);
+            $manga->setDescricao($descricao);
+            $manga->setResumo($resumo);
+            $manga->setAvaliacao($avaliacao);
+            $manga->setGenero($genero);
+            $manga->setQuantidadesRequisitada($quantidadesRequisitada);
+            $manga->setUrlCapa($url_capa);
+            return $manga;
+        }
+
+        public static function construtorComParametrosSemId( $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa){
+            $manga = new Manga();
             $manga->setNome($nome);
             $manga->setVolume($volume);
             $manga->setDescricao($descricao);
