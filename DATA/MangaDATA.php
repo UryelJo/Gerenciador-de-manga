@@ -53,7 +53,7 @@
         }
 
         public function Insert(\MODEL\Manga $manga){
-            $scripSql = "INSERT INTO manga(nome, volume, descricao, resumo, avaliacao, genero, quantidades_requisitadas, url_capa) VALUES('
+            $scripSql = "INSERT INTO manga(nome, volume, descricao, resumo, avaliacao, genero, quantidades_requisitada, url_capa) VALUES('
             {$manga->getNome()}','
             {$manga->getVolume()}', '
             {$manga->getDescricao()}', '
@@ -73,7 +73,7 @@
         //oniotigago
 
         public function Update(\MODEL\Manga $manga){
-            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requesitada = ?, url_capa = ?;";
+            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requisitada = ?, url_capa = ?;";
 
             $conexao = Conexao::conectarComDB();
 
