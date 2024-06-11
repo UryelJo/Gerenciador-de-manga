@@ -8,6 +8,13 @@
 
         public function __construct(){}
 
+        public static function construtorComParametros($id, $nome, $cnpj){
+            $editora = new Editora();
+            $editora->setId($id);
+            $editora->setNome($nome);
+            $editora->setCnpj($cnpj);
+        }
+
         public function getId(){
             return $this->id;
         }

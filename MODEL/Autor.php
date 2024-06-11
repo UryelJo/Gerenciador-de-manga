@@ -8,6 +8,13 @@
 
         public function __construct(){}
 
+        public static function construtorComParametros($id, $nome, $idade){
+            $autor = new Autor();
+            $autor->setId($id);
+            $autor->setNome($nome);
+            $autor->setIdade($idade);
+        }
+
         public function getId(){
             return $this->id;
         }

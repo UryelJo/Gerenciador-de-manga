@@ -9,6 +9,14 @@
 
         public function __construct(){}
 
+        public static function construtorComParametros($id, $nome, $email, $senha){
+            $user = new User();
+            $user->setId($id);
+            $user->setNome($nome);
+            $user->setEmail($email);
+            $user->setSenha($senha);
+        }
+
         public function getId(){
             return $this->id;
         }
