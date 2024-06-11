@@ -13,6 +13,7 @@
             $editora->setId($id);
             $editora->setNome($nome);
             $editora->setCnpj($cnpj);
+            return $editora;
         }
 
         public function getId(){

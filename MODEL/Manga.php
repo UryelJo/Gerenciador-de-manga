@@ -29,6 +29,7 @@
             $manga->setGenero($genero);
             $manga->setQuantidadesRequisitada($quantidadesRequisitada);
             $manga->setUrlCapa($url_capa);
+            return $manga;
         }
 
 

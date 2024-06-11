@@ -15,6 +15,7 @@
             $user->setNome($nome);
             $user->setEmail($email);
             $user->setSenha($senha);
+            return $user;
         }
 
         public function getId(){

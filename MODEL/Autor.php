@@ -13,6 +13,7 @@
             $autor->setId($id);
             $autor->setNome($nome);
             $autor->setIdade($idade);
+            return $autor;
         }
 
         public function getId(){
