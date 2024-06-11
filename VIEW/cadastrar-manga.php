@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
     $descricao = $_POST['input-descricao'];
 
     (new BUSINESS\MangaService())->Insert(
-        MODEL\Manga::construtorComParametros($nome, $volume, $resumo, $descricao, $avaliacao,
+        MODEL\Manga::construtorComParametrosSemId($nome, $volume, $resumo, $descricao, $avaliacao,
         $genero, $quantidade, $urlFoto)
     );
 }
