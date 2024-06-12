@@ -57,12 +57,12 @@
         //oniotigago
 
         public function Update(\MODEL\Autor $autor){
-            $scripSql = "UPDATE autor SET nome = ?, idade = ?;";
+            $scripSql = "UPDATE autor SET nome = ?, idade = ?. WHERE id =?;";
 
             $conexao = Conexao::conectarComDB();
 
             $query = $conexao->prepare($scripSql);
-            $resultadoUpdate = $query->execute(array($autor->getNome(), $autor->getIdade()));
+            $resultadoUpdate = $query->execute(array($autor->getNome(), $autor->getIdade(), $autor->getId()));
 
             $conexao = Conexao::desconectarComDB();
 
