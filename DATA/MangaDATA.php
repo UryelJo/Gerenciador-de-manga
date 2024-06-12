@@ -53,7 +53,7 @@
         }
 
         public function Insert(\MODEL\Manga $manga){
-            $scripSql = "INSERT INTO manga(nome, volume, descricao, resumo, avaliacao, genero, quantidades_requisitada, url_capa) VALUES('
+            $scriptSql = "INSERT INTO `manga` ( `nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `genero`, `quantidades_requisitada`,`url_capa`) VALUES('
             {$manga->getNome()}','
             {$manga->getVolume()}', '
             {$manga->getDescricao()}', '
@@ -61,10 +61,10 @@
             {$manga->getAvaliacao()}', '
             {$manga->getGenero()}', '
             {$manga->getQuantidadesRequisitada()}', '
-            {$manga->getUrlCapa()});";
+            {$manga->getUrlCapa()}');";
 
             $conexao = Conexao::conectarComDB();
-            $resultadoCadastro = $conexao->query($scripSql);
+            $resultadoCadastro = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
 
             return $resultadoCadastro;
@@ -72,13 +72,13 @@
 
         //oniotigago
 
-        public function Update(\MODEL\Manga $manga){
-            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requisitada = ?, url_capa = ?;";
+        public function Update(\MODEL\Manga $manga){ 
+            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requisitada = ?, url_capa = ? WHERE id=?;";
 
             $conexao = Conexao::conectarComDB();
 
             $query = $conexao->prepare($scripSql);
-            $resultadoUpdate = $query->execute(array($manga->getNome(), $manga->getVolume(), $manga->getDescricao(),$manga->getResumo(), $manga->getAvaliacao(), $manga->getGenero(), $manga->getQuantidadesRequisitada(), $manga->getUrlCapa()));
+            $resultadoUpdate = $query->execute(array($manga->getNome(), $manga->getVolume(), $manga->getDescricao(),$manga->getResumo(), $manga->getAvaliacao(), $manga->getGenero(), $manga->getQuantidadesRequisitada(), $manga->getUrlCapa(), $manga->getId() ));
 
             $conexao = Conexao::desconectarComDB();
 
