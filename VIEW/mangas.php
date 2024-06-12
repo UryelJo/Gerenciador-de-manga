@@ -109,7 +109,7 @@
                 <button class="button" onclick="fecharDialog()">
                     Voltar
                 </button>
-                <button class="button" onclick="window.location.href = '."'"."http://localhost:8080/Gerenciador-de-manga/VIEW/editar.php?id=". htmlspecialchars($mangaSelecionado->getId()) ."'".'">
+                <button class="button" onclick="window.location.href = '."'"."http://localhost:8080/Gerenciador-de-manga/VIEW/editar-manga.php?id=". htmlspecialchars($mangaSelecionado->getId()) ."'".'">
                     Editar
                 </button>
                 <h3>Visualizar</h3>
