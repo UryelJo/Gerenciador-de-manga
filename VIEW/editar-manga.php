@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
     (new BUSINESS\MangaService())->Delete($_GET['id']);
 
-    header("Location: http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php?deleted=true");
+    header("Location: http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php");
     exit;
 }
 ?>

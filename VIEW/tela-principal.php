@@ -24,8 +24,8 @@
         <button class="button" onclick="window.location.replace('mangas.php')">
             Mangás
         </button>
-        <button class="button" onclick="window.location.replace('')">
-            Usuários
+        <button class="button" onclick="window.location.replace('editora.php')">
+            Editoras
         </button>
         <button class="button" onclick="window.location.replace('')">
             Favoritos

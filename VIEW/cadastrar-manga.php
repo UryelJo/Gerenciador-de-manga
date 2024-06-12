@@ -1,23 +1,23 @@
 <?php
-include_once "../BUSINESS/MangaService.php";
-include_once "../MODEL/Manga.php";
+    include_once "../BUSINESS/MangaService.php";
+    include_once "../MODEL/Manga.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
 
-    $urlFoto = $_POST['input-url'];
-    $nome = $_POST['input-nome'];
-    $volume = $_POST['input-volume'];
-    $genero = $_POST['input-genero'];
-    $quantidade = $_POST['input-quantidade'];
-    $avaliacao = $_POST['input-avaliacao'];
-    $resumo = $_POST['input-resumo'];
-    $descricao = $_POST['input-descricao'];
+        $urlFoto = $_POST['input-url'];
+        $nome = $_POST['input-nome'];
+        $volume = $_POST['input-volume'];
+        $genero = $_POST['input-genero'];
+        $quantidade = $_POST['input-quantidade'];
+        $avaliacao = $_POST['input-avaliacao'];
+        $resumo = $_POST['input-resumo'];
+        $descricao = $_POST['input-descricao'];
 
-    (new BUSINESS\MangaService())->Insert(
-        MODEL\Manga::construtorComParametrosSemId($nome, $volume, $resumo, $descricao, $avaliacao,
-        $genero, $quantidade, $urlFoto)
-    );
-}
+        (new BUSINESS\MangaService())->Insert(
+            MODEL\Manga::construtorComParametrosSemId($nome, $volume, $resumo, $descricao, $avaliacao,
+            $genero, $quantidade, $urlFoto)
+        );
+    }
 ?>
 
 <!DOCTYPE html>
