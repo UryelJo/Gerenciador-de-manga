@@ -53,7 +53,7 @@
     </div>
     <div class="card w-80 col h-80" style="overflow-y: auto;">
         <div class="row">
-            <button class="button"> Cadastrar Mangá </button>
+            <button class="button" onclick="document.location.href = 'http://localhost:8080/Gerenciador-de-manga/VIEW/cadastrar-manga.php'"> Cadastrar Mangá </button>
         </div>
         <?php
         foreach($servicoManga->SelectAll() as $manga) {

@@ -29,7 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
     <link rel="stylesheet" href="./CSS/shared.css">
 </head>
 <body>
-    <h2>Cadastrar Mangá</h2>
+    <div class="w-80 row align-center" style="gap: 20px">
+        <div style="width: 300px">
+            <button onclick="document.location.href = 'http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php'" class="button w-80">Voltar</button>
+        </div>
+        <h2>Cadastrar Mangá</h2>
+    </div>
     <form class="card w-80 h-80 row" style="gap: 20px" method="POST">
         <div class="col" style="width: 50%; justify-content: space-evenly">
             <!-- Parte de Cima esquerda !-->

@@ -21,6 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
     );
 
     header("Location: http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php?dialog-aberto=true&id-manga=".$mangaSelecionado->getId());
+
+} elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
+    (new BUSINESS\MangaService())->Delete($_GET['id']);
+
+    header("Location: http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php?deleted=true");
+    exit;
 }
 ?>
 
@@ -88,6 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
             </div>
             <button action="submit" class="button w-80">Salvar</button>
         </div>
+    </form>
+    <form method="POST" class="w-80 p-10">
+        <input type="hidden" name="delete" value="true">
+        <button type="submit" class="button w-80">Deletar</button>
     </form>
 </body>
 </html>
