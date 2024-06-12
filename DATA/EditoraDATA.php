@@ -38,7 +38,7 @@
         }
 
         public function Insert(\MODEL\Editora $editora){
-            $scripSql = "INSERT INTO editora(nome, cnpj) VALUES('
+            $scripSql = "INSERT INTO `editora` (`nome`, `cnpj`) VALUES('
             {$editora->getNome()}','
             {$editora->getCnpj()}');";
 
