@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
         MODEL\Manga::construtorComParametros($_GET['id'], $nome, $volume, $resumo, $descricao, $avaliacao,
         $genero, $quantidade, $urlFoto)
     );
+
+    header("Location: http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php?dialog-aberto=true&id-manga=".$mangaSelecionado->getId());
 }
 ?>
 
