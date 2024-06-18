@@ -18,7 +18,7 @@
         //Construtor
         public function __construct(){}
 
-        public static function construtorComParametros( $id,  $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa){
+        public static function construtorComParametros( $id,  $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa, $editoraId,  $autorId){
             $manga = new Manga();
             $manga->setId($id);
             $manga->setNome($nome);
@@ -29,10 +29,12 @@
             $manga->setGenero($genero);
             $manga->setQuantidadesRequisitada($quantidadesRequisitada);
             $manga->setUrlCapa($url_capa);
+            $manga->setEditoraId($editoraId);
+            $manga->setAutorId($autorId);
             return $manga;
         }
 
-        public static function construtorComParametrosSemId( $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa){
+        public static function construtorComParametrosSemId( $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa, $editoraId,  $autorId){
             $manga = new Manga();
             $manga->setNome($nome);
             $manga->setVolume($volume);
@@ -42,6 +44,8 @@
             $manga->setGenero($genero);
             $manga->setQuantidadesRequisitada($quantidadesRequisitada);
             $manga->setUrlCapa($url_capa);
+            $manga->setEditoraId($editoraId);
+            $manga->setAutorId($autorId);
             return $manga;
         }
 
