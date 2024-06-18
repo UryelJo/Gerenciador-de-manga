@@ -43,7 +43,7 @@
         }
 
         public function Insert(\MODEL\Autor $autor){
-            $scripSql = "INSERT INTO autor(nome, idade) VALUES('
+            $scripSql = "INSERT INTO `autor`(`nome`, `idade`) VALUES('
             {$autor->getNome()}','
             {$autor->getIdade()}');";
 
@@ -57,7 +57,7 @@
         //oniotigago
 
         public function Update(\MODEL\Autor $autor){
-            $scripSql = "UPDATE autor SET nome = ?, idade = ?. WHERE id =?;";
+            $scripSql = "UPDATE autor SET nome = ?, idade = ? WHERE id =?;";
 
             $conexao = Conexao::conectarComDB();
 

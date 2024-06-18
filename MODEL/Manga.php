@@ -12,6 +12,9 @@
         private ?int $quantidadesRequisitada;
         private ?string $url_capa;
 
+        private ?int $editoraId;
+        private ?int $autorId;
+
         //Construtor
         public function __construct(){}
 
@@ -80,6 +83,14 @@
             return $this->url_capa;
         }
 
+        public function getEditoraId(){
+            return $this->editoraId;
+        }
+
+        public function getAutorId(){
+            return $this->autorId;
+        }
+
         //Setters
         public function setId(int $id){
             $this->id = $id;
@@ -115,6 +126,14 @@
         
         public function setUrlCapa(string $url_capa){
             $this->url_capa = $url_capa;
+        }
+
+        public function setEditoraId(int $editoraId){
+            $this->editoraId = $editoraId;
+        }
+
+        public function setAutorId(int $autorId){
+            $this->autorId = $autorId;
         }
     }
 ?>

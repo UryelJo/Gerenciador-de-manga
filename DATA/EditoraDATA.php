@@ -52,12 +52,12 @@
         //oniotigago
 
         public function Update(\MODEL\Editora $editora){
-            $scripSql = "UPDATE editora SET nome = ?, cnpj = ?, WHERE id=?;";
+            $scripSql = "UPDATE editora SET nome = ?, cnpj = ? WHERE id=?;";
 
             $conexao = Conexao::conectarComDB();
 
             $query = $conexao->prepare($scripSql);
-            $resultadoUpdate = $query->execute(array($editora->getNome(), $editora->getCnpj(), $editora->getId() ));
+            $resultadoUpdate = $query->execute(array($editora->getNome(), $editora->getCnpj(), $editora->getId()));
 
             $conexao = Conexao::desconectarComDB();
 
