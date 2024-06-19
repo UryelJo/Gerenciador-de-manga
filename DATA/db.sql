@@ -34,8 +34,8 @@ CREATE TABLE `manga` (
     PRIMARY KEY (`id`),
     KEY `autor_id` (`autor_id`),
     KEY `editora_id` (`editora_id`),
-    CONSTRAINT `fk_manga_autor` FOREIGN KEY (`autor_id`) REFERENCES `autor`(`id`),
-    CONSTRAINT `fk_manga_editora` FOREIGN KEY (`editora_id`) REFERENCES `editora`(`id`)
+    CONSTRAINT `fk_manga_autor` FOREIGN KEY (`autor_id`) REFERENCES `autor`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_manga_editora` FOREIGN KEY (`editora_id`) REFERENCES `editora`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `user` (
@@ -50,8 +50,8 @@ CREATE TABLE `user_manga` (
     `user_id` int(11) NOT NULL,
     `manga_id` int(11) NOT NULL,
     PRIMARY KEY (`user_id`, `manga_id`),
-    CONSTRAINT `fk_user_manga_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`), 
-    CONSTRAINT `fk_user_manga_manga` FOREIGN KEY (`manga_id`) REFERENCES `manga` (`id`)
+    CONSTRAINT `fk_user_manga_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
+    CONSTRAINT `fk_user_manga_manga` FOREIGN KEY (`manga_id`) REFERENCES `manga` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 INSERT INTO `autor` (`nome`, `idade`) VALUES
