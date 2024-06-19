@@ -5,8 +5,11 @@ include_once "../MODEL/Editora.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
 
-    $cnpj = $_POST['input-cnpj'];
-    $nome = $_POST['input-nome'];
+    $cnpj = trim($_POST['input-cnpj']);
+    $nome = trim($_POST['input-nome']);
+
+    echo $nome;
+    echo $cnpj;
 
     (new BUSINESS\EditoraService())->Insert(
         MODEL\Editora::construtorComParametrosSemId($nome, $cnpj)

@@ -57,17 +57,7 @@
         }
 
         public function Insert(\MODEL\Manga $manga){
-            $scriptSql = "INSERT INTO `manga` ( `nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `genero`, `quantidades_requisitada`,`url_capa`, `editora_id`, `autor_id`) VALUES('
-            {$manga->getNome()}','
-            {$manga->getVolume()}', '
-            {$manga->getDescricao()}', '
-            {$manga->getResumo()}', '
-            {$manga->getAvaliacao()}', '
-            {$manga->getGenero()}', '
-            {$manga->getQuantidadesRequisitada()}', '
-            {$manga->getUrlCapa()}', '
-            {$manga->getAutorId()}', '
-            {$manga->getEditoraId()}');";
+            $scriptSql = "INSERT INTO `manga` ( `nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `genero`, `quantidades_requisitada`,`url_capa`, `editora_id`, `autor_id`) VALUES('{$manga->getNome()}','{$manga->getVolume()}', '{$manga->getDescricao()}', '{$manga->getResumo()}', '{$manga->getAvaliacao()}', '{$manga->getGenero()}', '{$manga->getQuantidadesRequisitada()}', '{$manga->getUrlCapa()}', '{$manga->getAutorId()}', '{$manga->getEditoraId()}');";
 
             $conexao = Conexao::conectarComDB();
             $resultadoCadastro = $conexao->query($scriptSql);
@@ -79,7 +69,7 @@
         //oniotigago
 
         public function Update(\MODEL\Manga $manga){ 
-            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requisitada = ?, url_capa = ?, editora_id = ?, autor_id = ?  WHERE id=?;";
+            $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requisitada = ?, url_capa = ?, editora_id = ?, autor_id = ? WHERE id=?;";
 
             $conexao = Conexao::conectarComDB();
 

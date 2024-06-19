@@ -38,9 +38,7 @@
         }
 
         public function Insert(\MODEL\Editora $editora){
-            $scripSql = "INSERT INTO `editora` (`nome`, `cnpj`) VALUES('
-            {$editora->getNome()}','
-            {$editora->getCnpj()}');";
+            $scripSql = "INSERT INTO `editora` (`nome`, `cnpj`) VALUES('{$editora->getNome()}','{$editora->getCnpj()}');";
 
             $conexao = Conexao::conectarComDB();
             $resultadoCadastro = $conexao->query($scripSql);
