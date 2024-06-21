@@ -5,7 +5,7 @@
 
     class EditoraDATA{
         public function Select(){
-            $scriptSql = "Select * from editora;";
+            $scriptSql = "SELECT * FROM editora;";
             $conexao = Conexao::conectarComDB();
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
@@ -22,7 +22,7 @@
             return $listaDeEditoras;
         }
         public function SelectById(int $id){
-            $scriptSql = 'Select *from editora where id=?;';
+            $scriptSql = 'SELECT * FROM editora WHERE id=?;';
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
             $query->execute(array($id));
@@ -63,7 +63,7 @@
         }
 
         public function Delete(int $id){
-            $scriptSql = "delete from editora WHERE id = ?;";
+            $scriptSql = "DELETE FROM editora WHERE id = ?;";
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);

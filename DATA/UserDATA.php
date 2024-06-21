@@ -7,7 +7,7 @@
     class UserDATA{
 
         public function SelectByEmail(string $email){
-            $scriptSql = 'Select * from user where email=?;';
+            $scriptSql = 'SELECT * FROM user WHERE email=?;';
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
             $query->execute(array($email));

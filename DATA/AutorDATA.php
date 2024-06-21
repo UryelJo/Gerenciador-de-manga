@@ -8,7 +8,7 @@
     {
         public function Select()
         {
-            $scriptSql = "Select * from autor;";
+            $scriptSql = "SELECT * FROM autor;";
             $conexao = Conexao::conectarComDB();
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
@@ -27,7 +27,7 @@
         }
 
         public function SelectById(int $id){
-            $scriptSql = 'Select *from autor where id=?;';
+            $scriptSql = 'SELECT * FROM autor WHERE id=?;';
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
             $query->execute(array($id));
@@ -43,9 +43,7 @@
         }
 
         public function Insert(\MODEL\Autor $autor){
-            $scripSql = "INSERT INTO `autor`(`nome`, `idade`) VALUES('
-            {$autor->getNome()}','
-            {$autor->getIdade()}');";
+            $scripSql = "INSERT INTO `autor`(`nome`, `idade`) VALUES('{$autor->getNome()}','{$autor->getIdade()}');";
 
             $conexao = Conexao::conectarComDB();
             $resultadoCadastro = $conexao->query($scripSql);
@@ -70,7 +68,7 @@
         }
 
         public function Delete(int $id){
-            $scriptSql = "delete from autor WHERE id = ?;";
+            $scriptSql = "DELETE FROM autor WHERE id = ?;";
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);

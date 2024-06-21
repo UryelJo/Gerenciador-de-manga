@@ -6,7 +6,7 @@
     class MangaDATA{
         public function Select()
         {
-            $scriptSql = "Select * from manga;";
+            $scriptSql = "SELECT * FROM manga;";
             $conexao = Conexao::conectarComDB();
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
@@ -33,7 +33,7 @@
         }
 
         public function SelectById(int $id){
-            $scriptSql = 'Select *from manga where id=?;';
+            $scriptSql = 'SELECT * FROM manga WHERE id=?;';
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
             $query->execute(array($id));
@@ -74,8 +74,7 @@
             $conexao = Conexao::conectarComDB();
 
             $query = $conexao->prepare($scripSql);
-            $resultadoUpdate = $query->execute(array($manga->getNome(), $manga->getVolume(), $manga->getDescricao(),$manga->getResumo(), $manga->getAvaliacao(), $manga->getGenero(), $manga->getQuantidadesRequisitada(), $manga->getUrlCapa(), $manga->getId(), 
-            $manga->getEditoraId(), $manga->getAutorId()));
+            $resultadoUpdate = $query->execute(array($manga->getNome(), $manga->getVolume(), $manga->getDescricao(),$manga->getResumo(), $manga->getAvaliacao(), $manga->getGenero(), $manga->getQuantidadesRequisitada(), $manga->getUrlCapa(), $manga->getEditoraId(), $manga->getAutorId(), $manga->getId()));
 
             $conexao = Conexao::desconectarComDB();
 
@@ -83,7 +82,7 @@
         }
 
         public function Delete(int $id){
-            $scriptSql = "delete from manga WHERE id = ?;";
+            $scriptSql = "DELETE FROM manga WHERE id = ?;";
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
