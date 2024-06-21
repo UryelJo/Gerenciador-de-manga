@@ -5,7 +5,7 @@
 
     class EditoraDATA{
         public function Select(){
-            $scriptSql = "SELECT * FROM editora;";
+            $scriptSql = "SELECT * FROM editora WHERE excluido=0;";
             $conexao = Conexao::conectarComDB();
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
@@ -63,11 +63,11 @@
         }
 
         public function Delete(int $id){
-            $scriptSql = "DELETE FROM editora WHERE id = ?;";
+            $scriptSql = "UPDATE editora SET excluido=? WHERE id = ?;";
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
-            $resultadoDelecao = $query->execute(array($id));
+            $resultadoDelecao = $query->execute(array(1,$id));
             $conexao = Conexao::desconectarComDB();
 
             return $resultadoDelecao;

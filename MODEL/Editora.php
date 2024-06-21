@@ -5,6 +5,7 @@
         private ?int $id;
         private ?string $nome;
         private ?string $cnpj;
+        private ?bool $deletado;
 
         public function __construct(){}
 
@@ -45,5 +46,13 @@
 
         public function setCnpj(string $cnpj){
             $this->cnpj = $cnpj;
+        }
+
+        public function getDeletado(){
+            return $this->deletado;
+        }
+
+        public function setDeletado(bool $deletado){
+            $this->deletado = $deletado;
         }
     }

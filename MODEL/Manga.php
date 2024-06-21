@@ -11,7 +11,7 @@
         private ?string $genero;
         private ?int $quantidadesRequisitada;
         private ?string $url_capa;
-
+        
         private ?int $editoraId;
         private ?int $autorId;
 
@@ -36,6 +36,7 @@
 
         public static function construtorComParametrosSemId( $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa, $editoraId,  $autorId){
             $manga = new Manga();
+
             $manga->setNome($nome);
             $manga->setVolume($volume);
             $manga->setDescricao($descricao);
@@ -44,8 +45,7 @@
             $manga->setGenero($genero);
             $manga->setQuantidadesRequisitada($quantidadesRequisitada);
             $manga->setUrlCapa($url_capa);
-            $manga->setEditoraId($editoraId);
-            $manga->setAutorId($autorId);
+
             return $manga;
         }
 

@@ -6,32 +6,35 @@ CREATE DATABASE IF NOT EXISTS `db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4
 USE `db`;
 
 CREATE TABLE `autor` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `nome` varchar(50) NOT NULL,
-    `idade` int(11) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT ,
+    `nome` varchar(50) NOT NULL ,
+    `idade` int(11) NOT NULL ,
+    `excluido` TINYINT(1) DEFAULT 0 ,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `editora` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `nome` varchar(50) NOT NULL,
-    `cnpj` varchar(14) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT ,
+    `nome` varchar(50) NOT NULL ,
+    `cnpj` varchar(14) NOT NULL ,
+    `excluido` TINYINT(1) DEFAULT 0 ,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `manga` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `nome` varchar(50) NOT NULL,
-    `volume` int(11) NOT NULL,
-    `descricao` text NOT NULL,
-    `resumo` text NOT NULL,
-    `avaliacao` double(2, 1) NOT NULL,
-    `genero` varchar(30) NOT NULL,
-    `quantidades_requisitada` int(11) NOT NULL,
-    `url_capa` varchar(255) DEFAULT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT ,
+    `nome` varchar(50) NOT NULL ,
+    `volume` int(11) NOT NULL ,
+    `descricao` text NOT NULL ,
+    `resumo` text NOT NULL ,
+    `avaliacao` double(2, 1) NOT NULL ,
+    `genero` varchar(30) NOT NULL ,
+    `quantidades_requisitada` int(11) NOT NULL ,
+    `url_capa` varchar(255) DEFAULT NULL ,
     `autor_id` int(11) ,
     `editora_id` int(11) ,
-    PRIMARY KEY (`id`),
+    `excluido`TINYINT(1) DEFAULT 0 ,
+    PRIMARY KEY (`id`) ,
     KEY `autor_id` (`autor_id`),
     KEY `editora_id` (`editora_id`),
     CONSTRAINT `fk_manga_autor` FOREIGN KEY (`autor_id`) REFERENCES `autor`(`id`) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -39,16 +42,16 @@ CREATE TABLE `manga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `user` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `nome` varchar(50) NOT NULL,
-    `email` varchar(60) NOT NULL,
-    `senha` varchar(70) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT ,
+    `nome` varchar(50) NOT NULL ,
+    `email` varchar(60) NOT NULL ,
+    `senha` varchar(70) NOT NULL ,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `user_manga` (
-    `user_id` int(11) NOT NULL,
-    `manga_id` int(11) NOT NULL,
+    `user_id` int(11) NOT NULL ,
+    `manga_id` int(11) NOT NULL ,
     PRIMARY KEY (`user_id`, `manga_id`),
     CONSTRAINT `fk_user_manga_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, 
     CONSTRAINT `fk_user_manga_manga` FOREIGN KEY (`manga_id`) REFERENCES `manga` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
