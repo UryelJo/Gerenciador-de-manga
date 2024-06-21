@@ -1,6 +1,10 @@
 <?php
     include_once "../BUSINESS/MangaService.php";
     include_once "../MODEL/Manga.php";
+    include_once "../BUSINESS/EditoraService.php";
+    include_once "../MODEL/Editora.php";
+    include_once "../BUSINESS/AutorService.php";
+    include_once "../MODEL/Autor.php";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-url'])) {
 
@@ -12,11 +16,15 @@
         $avaliacao = $_POST['input-avaliacao'];
         $resumo = $_POST['input-resumo'];
         $descricao = $_POST['input-descricao'];
+        $idAutor = $_POST['input-autor'];
+        $idEditora = $_POST['input-editora'];
 
         (new BUSINESS\MangaService())->Insert(
             MODEL\Manga::construtorComParametrosSemId($nome, $volume, $resumo, $descricao, $avaliacao,
-            $genero, $quantidade, $urlFoto)
+            $genero, $quantidade, $urlFoto, $idEditora, $idAutor)
         );
+
+        header("location: http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php");
     }
 ?>
 
@@ -61,13 +69,51 @@
                     <label for="input-genero">Genero</label>
                     <input id="input-genero" name="input-genero" type="text">
                 </div>
-                <div class="col">
-                    <label for="input-quantidade">Quantidade Requisitada</label>
-                    <input id="input-quantidade" name="input-quantidade" type="number">
+                <div class="row" style="justify-content: space-evenly">
+                    <div class="col">
+                        <label for="input-quantidade">Quantidade Requisitada</label>
+                        <input id="input-quantidade" name="input-quantidade" type="number">
+                    </div>
+                    <div class="col">
+                        <label for="input-avaliacao">Avaliação</label>
+                        <input id="input-avaliacao" name="input-avaliacao" type="number">
+                    </div>
                 </div>
-                <div class="col">
-                    <label for="input-avaliacao">Avaliação</label>
-                    <input id="input-avaliacao" name="input-avaliacao" type="number">
+                <div class="row" style="justify-content: space-evenly">
+                    <div class="col">
+                        <label for="input-editora">Editora</label>
+                        <div style="height: 80px; overflow-y: scroll">
+                        <?php
+                        $listaDeEditoras = ((new BUSINESS\EditoraService())->SelectAll());
+                        if ($listaDeEditoras) {
+                            foreach ($listaDeEditoras as $editora) {
+                                echo "<div class='row align-center'>
+                                <input type='radio' id='input-editora' name='input-editora' value='" . htmlspecialchars($editora->getId()) . "'>
+                                " . htmlspecialchars($editora->getNome()) . "
+                                
+                                </div>";
+                            }
+                        } else {
+                            echo "<p>Não existem editoras!<br> crie uma editora para continuar!</p>";
+                        }
+                        ?>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="input-autor">Autor</label>
+                        <div style="height: 80px; overflow-y: scroll">
+                        <?php
+                        $listaDeAutores = ((new BUSINESS\AutorService())->SelectAll());
+                        foreach ($listaDeAutores as $autor) {
+                            echo "<div class='row align-center'>
+                            <input type='radio' id='input-autor' name='input-autor' value='" . htmlspecialchars($autor->getId()) . "'>
+                            " . htmlspecialchars($autor->getNome()) . "
+                            
+                            </div>";
+                        }
+                        ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Parte de Baixo esquerda !-->

@@ -19,7 +19,7 @@
 
                 $listaDeEditoras[] = $editora;
             }
-            return $listaDeEditoras;
+            return isset($listaDeEditoras) ? $listaDeEditoras : NULL;
         }
         public function SelectById(int $id){
             $scriptSql = 'SELECT * FROM editora WHERE id=?;';

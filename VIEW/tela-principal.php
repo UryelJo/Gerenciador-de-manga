@@ -27,6 +27,9 @@
         <button class="button" onclick="window.location.replace('editora.php')">
             Editoras
         </button>
+        <button class="button" onclick="window.location.replace('autores.php')">
+            Autor
+        </button>
         <button class="button" onclick="window.location.replace('')">
             Favoritos
         </button>

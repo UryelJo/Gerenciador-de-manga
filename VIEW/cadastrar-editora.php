@@ -8,12 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
     $cnpj = trim($_POST['input-cnpj']);
     $nome = trim($_POST['input-nome']);
 
-    echo $nome;
-    echo $cnpj;
-
     (new BUSINESS\EditoraService())->Insert(
         MODEL\Editora::construtorComParametrosSemId($nome, $cnpj)
     );
+
+    header("location: http://localhost:8080/Gerenciador-de-manga/VIEW/editora.php");
 }
 ?>
 

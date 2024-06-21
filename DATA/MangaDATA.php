@@ -23,9 +23,13 @@
                 $manga->setGenero($registroUnico['genero']);
                 $manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
                 $manga->setUrlCapa($registroUnico['url_capa']);
-                $manga->setEditoraId($registroUnico['editora_id']);
-                $manga->setAutorId($registroUnico['autor_id']);
-
+                if($registroUnico['editora_id'] != null){
+                    $manga->setEditoraId($registroUnico['editora_id']);
+                }
+                if($registroUnico['autor_id'] != null){
+                    $manga->setAutorId($registroUnico['autor_id']);
+                }
+                
                 $listaDeMangas[] = $manga;
             }
 
@@ -50,14 +54,17 @@
             $manga->setGenero($registroUnico['genero']);
             $manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
             $manga->setUrlCapa($registroUnico['url_capa']);
-            $manga->setEditoraId($registroUnico['editora_id']);
-            $manga->setAutorId($registroUnico['autor_id']);
-
+            if($registroUnico['editora_id'] != null){
+                $manga->setEditoraId($registroUnico['editora_id']);
+            }
+            if($registroUnico['autor_id'] != null){
+                $manga->setAutorId($registroUnico['autor_id']);
+            }
             return $manga;
         }
 
         public function Insert(\MODEL\Manga $manga){
-            $scriptSql = "INSERT INTO `manga` ( `nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `genero`, `quantidades_requisitada`,`url_capa`, `editora_id`, `autor_id`) VALUES('{$manga->getNome()}','{$manga->getVolume()}', '{$manga->getDescricao()}', '{$manga->getResumo()}', '{$manga->getAvaliacao()}', '{$manga->getGenero()}', '{$manga->getQuantidadesRequisitada()}', '{$manga->getUrlCapa()}', '{$manga->getAutorId()}', '{$manga->getEditoraId()}');";
+            $scriptSql = "INSERT INTO `manga` ( `nome`, `volume`, `descricao`,`resumo`, `avaliacao`, `genero`, `quantidades_requisitada`,`url_capa`, `autor_id`, `editora_id`) VALUES('{$manga->getNome()}','{$manga->getVolume()}', '{$manga->getDescricao()}', '{$manga->getResumo()}', '{$manga->getAvaliacao()}', '{$manga->getGenero()}', '{$manga->getQuantidadesRequisitada()}', '{$manga->getUrlCapa()}', '{$manga->getAutorId()}', '{$manga->getEditoraId()}');";
 
             $conexao = Conexao::conectarComDB();
             $resultadoCadastro = $conexao->query($scriptSql);

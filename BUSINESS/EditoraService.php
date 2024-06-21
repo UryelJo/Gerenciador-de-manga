@@ -7,10 +7,10 @@
         public function SelectAll(){
             $DataEditora = new \DATA\EditoraDATA;
             $listaDeEditoras = $DataEditora->Select();
-            if(empty($listaDeEditoras)){
-                echo "nenhuma editora cadastrada";
-            } else {
+            if(isset($listaDeEditoras)){
                 return $listaDeEditoras;
+            } else {
+                
             }
         }
 

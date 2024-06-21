@@ -56,40 +56,44 @@
             <button class="button" onclick="document.location.href = 'http://localhost:8080/Gerenciador-de-manga/VIEW/cadastrar-manga.php'"> Cadastrar Mangá </button>
         </div>
         <?php
-        foreach($servicoManga->SelectAll() as $manga) {
-            echo '
-            <div class="row" style="height: 150px; justify-content: space-between">
-            <img style="height: 100%" src="'. htmlspecialchars($manga->getUrlCapa()) . '" alt="Imagem não localizada">
-            <div style="height: 100%" class="col justify-center p-10 ">
-
-                <!-- Informações !-->
-                <h2><strong>' . 
-                htmlspecialchars($manga->getNome())
-                . '</strong></h2>
-                <div class="row g-10">';
-                    
-                    for ($index = 0; $index < $manga->getAvaliacao() + 1; $index++) {
-                        echo "<i class='fa-solid fa-star fa-xs'></i>";
-                    }
-
-                echo '</div>
-                <!-- Informações !-->
-
-            </div>
-            <div class="col justify-center p-10">
-                <section class="card-categoria">
-                    '. htmlspecialchars($manga->getGenero()) .'
-                </section>
-            </div>
-            <div>
-                '. htmlspecialchars($manga->getDescricao()) .'
-            </div>
-            <div class="col justify-center p-10">
-                <button class="button" onclick="abrirDialog('. htmlspecialchars($manga->getId()) .')">
-                    Visualizar
-                </button>
-            </div>
-            </div>';
+        if ($servicoManga->SelectAll() == null) {
+            echo "<h1>NÃO EXISTEM MANGÁS</h1>";
+        } else {
+            foreach($servicoManga->SelectAll() as $manga) {
+                echo '
+                <div class="row" style="height: 150px; justify-content: space-between">
+                <img style="height: 100%" src="'. htmlspecialchars($manga->getUrlCapa()) . '" alt="Imagem não localizada">
+                <div style="height: 100%" class="col justify-center p-10 ">
+    
+                    <!-- Informações !-->
+                    <h2><strong>' . 
+                    htmlspecialchars($manga->getNome())
+                    . '</strong></h2>
+                    <div class="row g-10">';
+                        
+                        for ($index = 0; $index < $manga->getAvaliacao() + 1; $index++) {
+                            echo "<i class='fa-solid fa-star fa-xs'></i>";
+                        }
+    
+                    echo '</div>
+                    <!-- Informações !-->
+    
+                </div>
+                <div class="col justify-center p-10">
+                    <section class="card-categoria">
+                        '. htmlspecialchars($manga->getGenero()) .'
+                    </section>
+                </div>
+                <div>
+                    '. htmlspecialchars($manga->getDescricao()) .'
+                </div>
+                <div class="col justify-center p-10">
+                    <button class="button" onclick="abrirDialog('. htmlspecialchars($manga->getId()) .')">
+                        Visualizar
+                    </button>
+                </div>
+                </div>';
+            }
         }
         ?>
         <hr>

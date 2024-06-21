@@ -29,13 +29,13 @@ CREATE TABLE `manga` (
     `genero` varchar(30) NOT NULL,
     `quantidades_requisitada` int(11) NOT NULL,
     `url_capa` varchar(255) DEFAULT NULL,
-    `autor_id` int(11) NOT NULL,
-    `editora_id` int(11) NOT NULL,
+    `autor_id` int(11) ,
+    `editora_id` int(11) ,
     PRIMARY KEY (`id`),
     KEY `autor_id` (`autor_id`),
     KEY `editora_id` (`editora_id`),
-    CONSTRAINT `fk_manga_autor` FOREIGN KEY (`autor_id`) REFERENCES `autor`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `fk_manga_editora` FOREIGN KEY (`editora_id`) REFERENCES `editora`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT `fk_manga_autor` FOREIGN KEY (`autor_id`) REFERENCES `autor`(`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT `fk_manga_editora` FOREIGN KEY (`editora_id`) REFERENCES `editora`(`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `user` (
