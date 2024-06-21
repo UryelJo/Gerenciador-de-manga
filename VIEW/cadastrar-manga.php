@@ -94,7 +94,7 @@
                                 </div>";
                             }
                         } else {
-                            echo "<p>Não existem editoras!<br> crie uma editora para continuar!</p>";
+                            echo "<p>Não existem Editoras!<br> crie uma editora para continuar!</p>";
                         }
                         ?>
                         </div>
@@ -104,12 +104,16 @@
                         <div style="height: 80px; overflow-y: scroll">
                         <?php
                         $listaDeAutores = ((new BUSINESS\AutorService())->SelectAll());
-                        foreach ($listaDeAutores as $autor) {
-                            echo "<div class='row align-center'>
-                            <input type='radio' id='input-autor' name='input-autor' value='" . htmlspecialchars($autor->getId()) . "'>
-                            " . htmlspecialchars($autor->getNome()) . "
-                            
-                            </div>";
+                        if ($listaDeAutores) {
+                            foreach ($listaDeAutores as $autor) {
+                                echo "<div class='row align-center'>
+                                <input type='radio' id='input-autor' name='input-autor' value='" . htmlspecialchars($autor->getId()) . "'>
+                                " . htmlspecialchars($autor->getNome()) . "
+                                
+                                </div>";
+                            }
+                        } else {
+                            echo "<p>Não existem Autores!<br> crie um Autor para continuar!</p>";
                         }
                         ?>
                         </div>

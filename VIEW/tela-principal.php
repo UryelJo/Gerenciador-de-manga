@@ -1,6 +1,6 @@
 <?php
     include '../BUSINESS/UserService.php';
-    if ($_COOKIE['nome'] == NULL) {
+    if (!isset($_COOKIE['nome'])) {
         header('Location: http://localhost:8080/Gerenciador-de-manga/VIEW/login.php');
     }
 ?>
@@ -11,28 +11,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./CSS/shared.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body class="row">
-    <div class="col justify-center w-50">
-        <p>Olá</p>
-        <h1>
-            <?php echo $_COOKIE['nome'] ?>
-        </h1>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 text-center mb-3">
+                <p>Olá</p>
+                <h1>
+                    <?php echo htmlspecialchars($_COOKIE['nome']); ?>
+                </h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 text-center">
+                <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('mangas.php')">Mangás</button>
+                <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('editora.php')">Editoras</button>
+                <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('autores.php')">Autor</button>
+                <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('')">Favoritos</button>
+            </div>
+        </div>
     </div>
-    <div class="col justify-center w-50" style="gap: 20px">
-        <button class="button" onclick="window.location.replace('mangas.php')">
-            Mangás
-        </button>
-        <button class="button" onclick="window.location.replace('editora.php')">
-            Editoras
-        </button>
-        <button class="button" onclick="window.location.replace('autores.php')">
-            Autor
-        </button>
-        <button class="button" onclick="window.location.replace('')">
-            Favoritos
-        </button>
-    </div>  
 </body>
 </html>
