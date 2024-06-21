@@ -6,7 +6,7 @@
     class MangaDATA{
         public function Select()
         {
-            $scriptSql = "SELECT * FROM manga;";
+            $scriptSql = "SELECT * FROM manga WHERE excluido=0;";
             $conexao = Conexao::conectarComDB();
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
@@ -23,12 +23,8 @@
                 $manga->setGenero($registroUnico['genero']);
                 $manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
                 $manga->setUrlCapa($registroUnico['url_capa']);
-                if($registroUnico['editora_id'] != null){
-                    $manga->setEditoraId($registroUnico['editora_id']);
-                }
-                if($registroUnico['autor_id'] != null){
-                    $manga->setAutorId($registroUnico['autor_id']);
-                }
+                $manga->setEditoraId($registroUnico['editora_id']);
+                $manga->setAutorId($registroUnico['autor_id']);
                 
                 $listaDeMangas[] = $manga;
             }
@@ -43,24 +39,25 @@
             $query->execute(array($id));
             $registroUnico = $query->fetch(\PDO::FETCH_ASSOC);
             $conexao = Conexao::desconectarComDB();
-
-            $manga = new \MODEL\Manga();
-            $manga->setId($registroUnico['id']);
-            $manga->setNome($registroUnico['nome']);
-            $manga->setVolume($registroUnico['volume']);
-            $manga->setDescricao($registroUnico['descricao']);
-            $manga->setResumo($registroUnico['resumo']);
-            $manga->setAvaliacao($registroUnico['avaliacao']);
-            $manga->setGenero($registroUnico['genero']);
-            $manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
-            $manga->setUrlCapa($registroUnico['url_capa']);
-            if($registroUnico['editora_id'] != null){
+            if(isset($registroUnico)){
+                
+                $manga = new \MODEL\Manga();
+                $manga->setId($registroUnico['id']);
+                $manga->setNome($registroUnico['nome']);
+                $manga->setVolume($registroUnico['volume']);
+                $manga->setDescricao($registroUnico['descricao']);
+                $manga->setResumo($registroUnico['resumo']);
+                $manga->setAvaliacao($registroUnico['avaliacao']);
+                $manga->setGenero($registroUnico['genero']);
+                $manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
+                $manga->setUrlCapa($registroUnico['url_capa']);
                 $manga->setEditoraId($registroUnico['editora_id']);
-            }
-            if($registroUnico['autor_id'] != null){
                 $manga->setAutorId($registroUnico['autor_id']);
+
+                return isset($manga) ? $manga : NULL;
+            }else {
+                echo "nenhum autor cadastrado" ;
             }
-            return isset($manga) ? $manga : NULL;;
         }
 
         public function Insert(\MODEL\Manga $manga){
@@ -79,7 +76,6 @@
             $scripSql = "UPDATE manga SET nome = ?, volume = ?, descricao = ?, resumo = ?, avaliacao = ?, genero = ?, quantidades_requisitada = ?, url_capa = ?, editora_id = ?, autor_id = ? WHERE id=?;";
 
             $conexao = Conexao::conectarComDB();
-
             $query = $conexao->prepare($scripSql);
             $resultadoUpdate = $query->execute(array($manga->getNome(), $manga->getVolume(), $manga->getDescricao(),$manga->getResumo(), $manga->getAvaliacao(), $manga->getGenero(), $manga->getQuantidadesRequisitada(), $manga->getUrlCapa(), $manga->getEditoraId(), $manga->getAutorId(), $manga->getId()));
 
@@ -89,11 +85,11 @@
         }
 
         public function Delete(int $id){
-            $scriptSql = "DELETE FROM manga WHERE id = ?;";
+            $scriptSql = "UPDATE manga SET excluido=? WHERE id = ?;";
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
-            $resultadoDelecao = $query->execute(array($id));
+            $resultadoDelecao = $query->execute(array(1 ,$id));
             $conexao = Conexao::desconectarComDB();
 
             return $resultadoDelecao;

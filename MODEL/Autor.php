@@ -6,6 +6,8 @@
         private ?string $nome;
         private ?int $idade;
 
+        private ?bool $deletado;
+
         public function __construct(){}
 
         public static function construtorComParametros($id, $nome, $idade){
@@ -45,6 +47,14 @@
 
         public function setIdade(int $idade){
             $this->idade = $idade;
+        }
+
+        public function getDeletado(){
+            return $this->deletado;
+        }
+
+        public function setDeletado(bool $deletado){
+            $this->deletado = $deletado;
         }
     }
 ?>

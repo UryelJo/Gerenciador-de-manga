@@ -8,7 +8,7 @@
     {
         public function Select()
         {
-            $scriptSql = "SELECT * FROM autor;";
+            $scriptSql = "SELECT * FROM autor WHERE excluido=0;";
             $conexao = Conexao::conectarComDB();
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
@@ -68,11 +68,11 @@
         }
 
         public function Delete(int $id){
-            $scriptSql = "DELETE FROM autor WHERE id = ?;";
+            $scriptSql = "UPDATE autor SET excluido=? WHERE id = ?;";
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
-            $resultadoDelecao = $query->execute(array($id));
+            $resultadoDelecao = $query->execute(array(1,$id));
             $conexao = Conexao::desconectarComDB();
 
             return $resultadoDelecao;
