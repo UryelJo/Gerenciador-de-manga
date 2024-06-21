@@ -23,7 +23,7 @@
                 $listaDeAutores[] = $autor;
             }
 
-            return $listaDeAutores;
+            isset($listaDeAutores) ? $listaDeAutores : NULL;
         }
 
         public function SelectById(int $id){
@@ -39,7 +39,7 @@
             $autor->setNome($registroUnico['nome']);
             $autor->setIdade($registroUnico['idade']);
 
-            return $autor;
+            return isset($autor) ? $autor : NULL;
         }
 
         public function Insert(\MODEL\Autor $autor){

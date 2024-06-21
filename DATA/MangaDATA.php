@@ -33,7 +33,7 @@
                 $listaDeMangas[] = $manga;
             }
 
-            return $listaDeMangas;
+            return isset($listaDeMangas) ? $listaDeMangas : NULL;;
         }
 
         public function SelectById(int $id){
@@ -60,7 +60,7 @@
             if($registroUnico['autor_id'] != null){
                 $manga->setAutorId($registroUnico['autor_id']);
             }
-            return $manga;
+            return isset($manga) ? $manga : NULL;;
         }
 
         public function Insert(\MODEL\Manga $manga){

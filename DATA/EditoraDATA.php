@@ -34,7 +34,7 @@
             $editora->setNome($registroUnico['nome']);
             $editora->setCnpj($registroUnico['cnpj']);
 
-            return $editora;
+            return  isset($editora) ? $editora : NULL;
         }
 
         public function Insert(\MODEL\Editora $editora){
