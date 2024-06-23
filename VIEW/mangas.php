@@ -40,7 +40,7 @@ $servicoManga = new \BUSINESS\MangaService();
                 echo '</td>';
                 echo '<td>' . htmlspecialchars($manga->getGenero()) . '</td>';
                 echo '<td>' . htmlspecialchars($manga->getDescricao()) . '</td>';
-                echo '<td><button class="btn btn-info" onclick="document.location.href=\'http://localhost:8080/Gerenciador-de-manga/VIEW/visualizar.php?id=' . $manga->getId() . '\'">Visualizar</button></td>';
+                echo '<td><button class="btn btn-info" onclick="document.location.href=\'http://localhost:8080/Gerenciador-de-manga/VIEW/visualizar-manga.php?id=' . $manga->getId() . '\'">Visualizar</button></td>';
                 echo '</tr>';
             }
             echo '</tbody>';

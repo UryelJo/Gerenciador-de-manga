@@ -20,38 +20,37 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info Screen</title>
+    <script src="https://kit.fontawesome.com/41b970f52c.js" crossorigin="anonymous"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3>Manga Details</h3>
+                <h3>Detalhes</h3>
             </div>
             <div class="card-body">
                 <?php
                 if ($mangaSelecionado) {
                 ?>
-                <div class="row">
+                <div class="row" style="height: 500px">
                     <div class="col-md-4">
                         <img src="<?php echo $mangaSelecionado->getUrlCapa(); ?>" alt="Cover Image" class="img-fluid rounded">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8" style="height: 100%; overflow-y: auto">
                         <h4 class="card-title"><?php echo htmlspecialchars($mangaSelecionado->getNome()); ?></h4>
                         <p><strong>Volume:</strong> <?php echo htmlspecialchars($mangaSelecionado->getVolume()); ?></p>
-                        <p><strong>Descrição:</strong> <?php echo htmlspecialchars($mangaSelecionado->getDescricao()); ?></p>
-                        <p><strong>Resumo:</strong> <?php echo htmlspecialchars($mangaSelecionado->getResumo()); ?></p>
+                        <p><strong>Descrição:</strong> <?php echo $mangaSelecionado->getResumo(); ?></p>
+                        <p><strong>Resumo:</strong> <?php echo htmlspecialchars($mangaSelecionado->getDescricao()); ?></p>
                         <p><strong>Avaliação:</strong> <?php echo htmlspecialchars($mangaSelecionado->getAvaliacao()); ?></p>
                         <p><strong>Gênero:</strong> <?php echo htmlspecialchars($mangaSelecionado->getGenero()); ?></p>
                         <p><strong>Quantidades Requisitada:</strong> <?php echo htmlspecialchars($mangaSelecionado->getQuantidadesRequisitada()); ?></p>
-                        <p><strong>Editora ID:</strong> <?php echo htmlspecialchars($mangaSelecionado->getEditoraId()); ?></p>
-                        <p><strong>Autor ID:</strong> <?php echo htmlspecialchars($mangaSelecionado->getAutorId()); ?></p>
                     </div>
                 </div>
                 <div class="mt-3">
-                    <a href="edit.php?id=<?php echo htmlspecialchars($mangaSelecionado->getId()); ?>" class="btn btn-primary">Edit</a>
-                    <a href="delete.php?id=<?php echo htmlspecialchars($mangaSelecionado->getId()); ?>" class="btn btn-danger">Delete</a>
-                    <a href="index.php" class="btn btn-secondary">Back</a>
+                    <a href="editar-manga.php?id=<?php echo htmlspecialchars($mangaSelecionado->getId()); ?>" class="btn btn-primary">Editar</a>
+                    <a class="btn btn-danger">Deletar</a>
+                    <a href="tela-principal.php" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Voltar</a>
                 </div>
                 <?php
                 } else {
