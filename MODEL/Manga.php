@@ -45,6 +45,8 @@
             $manga->setGenero($genero);
             $manga->setQuantidadesRequisitada($quantidadesRequisitada);
             $manga->setUrlCapa($url_capa);
+            $manga->setEditoraId($editoraId);
+            $manga->setAutorId($autorId);
 
             return $manga;
         }
