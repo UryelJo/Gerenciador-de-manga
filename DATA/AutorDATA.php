@@ -13,7 +13,7 @@
             $todosOsRegistros = $conexao->query($scriptSql);
             $conexao = Conexao::desconectarComDB();
 
-            foreach( $todosOsRegistros as $registroUnico){
+            foreach($todosOsRegistros as $registroUnico){
                 $autor = new \MODEL\Autor();
 
                 $autor->setId($registroUnico['id']);
@@ -43,7 +43,7 @@
         }
 
         public function Insert(\MODEL\Autor $autor){
-            $scripSql = "INSERT INTO `autor`(`nome`, `idade`) VALUES('{$autor->getNome()}','{$autor->getIdade()}');";
+            $scripSql = "INSERT INTO `autor` (`nome`, `idade`) VALUES('{$autor->getNome()}','{$autor->getIdade()}');";
 
             $conexao = Conexao::conectarComDB();
             $resultadoCadastro = $conexao->query($scripSql);
@@ -58,10 +58,8 @@
             $scripSql = "UPDATE autor SET nome = ?, idade = ? WHERE id =?;";
 
             $conexao = Conexao::conectarComDB();
-
             $query = $conexao->prepare($scripSql);
             $resultadoUpdate = $query->execute(array($autor->getNome(), $autor->getIdade(), $autor->getId()));
-
             $conexao = Conexao::desconectarComDB();
 
             return $resultadoUpdate;

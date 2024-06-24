@@ -34,7 +34,7 @@
             return $manga;
         }
 
-        public static function construtorComParametrosSemId( $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada,  $url_capa, $editoraId,  $autorId){
+        public static function construtorComParametrosSemId( $nome,  $volume,  $descricao,  $resumo,  $avaliacao,  $genero,  $quantidadesRequisitada, $url_capa, $editoraId,  $autorId){
             $manga = new Manga();
 
             $manga->setNome($nome);

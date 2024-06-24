@@ -29,7 +29,7 @@
                 $listaDeMangas[] = $manga;
             }
 
-            return isset($listaDeMangas) ? $listaDeMangas : NULL;;
+            return isset($listaDeMangas) ? $listaDeMangas : NULL;
         }
 
         public function SelectById(int $id){
