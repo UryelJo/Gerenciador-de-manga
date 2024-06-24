@@ -23,7 +23,7 @@
                 $listaDeAutores[] = $autor;
             }
 
-            isset($listaDeAutores) ? $listaDeAutores : NULL;
+            return isset($listaDeAutores) ? $listaDeAutores : NULL;
         }
 
         public function SelectById(int $id){
