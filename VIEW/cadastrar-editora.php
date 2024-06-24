@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
         MODEL\Editora::construtorComParametrosSemId($nome, $cnpj)
     );
 
-    // header("location: http://localhost:8080/Gerenciador-de-manga/VIEW/editora.php");
+    header("location: http://localhost:8080/Gerenciador-de-manga/VIEW/editora.php");
 }
 ?>
 <!DOCTYPE html>
@@ -45,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                             aria-describedby="helpId"
                             placeholder="Nome"
                             required
+                            maxlength="50"
                         />
                         <small id="helpId" class="form-text text-muted">O nome da Editora</small>
                     </div>
@@ -58,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                             aria-describedby="helpId"
                             placeholder="CNPJ"
                             required
+                            maxlength="14"
                         />
                         <small id="helpId" class="form-text text-muted">O cnpj da editora</small>
                     </div>

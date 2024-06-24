@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                             aria-describedby="helpId"
                             placeholder="Nome"
                             required
-                            value=" <?php echo $editoraSelecionada->getNome() ?>"
+                            value="<?php echo $editoraSelecionada->getNome() ?>"
                         />
                         <small id="helpId" class="form-text text-muted">O nome da Editora</small>
                     </div>
@@ -67,7 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                             aria-describedby="helpId"
                             placeholder="CNPJ"
                             required
-                            value=" <?php echo $editoraSelecionada->getCnpj() ?>"
+                            maxlength="14"
+                            value="<?php echo $editoraSelecionada->getCnpj() ?>"
                         />
                         <small id="helpId" class="form-text text-muted">O cnpj da editora</small>
                     </div>

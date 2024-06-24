@@ -1,21 +1,19 @@
 <?php
-include_once("../BUSINESS/MangaService.php");
-include_once("../MODEL/Manga.php");
+include_once("../BUSINESS/UserMangaService.php");
+include_once("../DATA/UserData.php");
+include_once("../DATA/UserMangaDATA.php");
+include_once("../MODEL/UserManga.php");
+include_once("../MODEL/User.php");
 
-function adicionarManga() {
-    echo "<script>alert('Função adicionarManga() foi acionada!');</script>";
-}
+$userMangaService = new \BUSINESS\UserMangaService();
+$user = (new \DATA\UserDATA())->SelectByEmail($_COOKIE['email']);
+$userMangas = $userMangaService->SelectAllByIdUser($user->getId());
 
-function removerManga() {
-    echo "<script>alert('Função removerManga() foi acionada!');</script>";
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
+    (new \DATA\UserMangaDATA())->RemoverDosFavoritos($user->getId(), $_POST['manga_id']);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
-    adicionarManga();
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['remover'])) {
-    removerManga();
+    header("Location: http://localhost:8080/Gerenciador-de-manga/VIEW/favoritos.php");
+    exit;
 }
 ?>
 
@@ -42,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['remover'])) {
 <body>
 <div class="container mt-3">
     <div class="header">
-        <h2>Gerenciador de Mangás</h2>
+        <h2>Favoritos</h2>
         <a href="tela-principal.php" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Voltar
         </a>
@@ -55,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['remover'])) {
                 </div>
                 <div class="card-body">
                     <form method="POST" class="mb-3">
-                        <button type="submit" name="adicionar" class="btn btn-success m-2">Adicionar</button>
+                        <a type="submit" name="adicionar" class="btn btn-success m-2" href="mangas-favoritos-nao-selecionados.php">Adicionar</a>
                     </form>
                     <table class="table table-bordered text-center">
                         <thead class="thead-dark">
@@ -66,17 +64,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['remover'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach((new \BUSINESS\MangaService())->SelectAll() as $manga): ?>
+                            <?php if (empty($userMangas)): ?>
                                 <tr>
-                                    <td><?= htmlspecialchars($manga->getNome(), ENT_QUOTES, 'UTF-8') ?></td>
-                                    <td><?= htmlspecialchars($manga->getAvaliacao(), ENT_QUOTES, 'UTF-8') ?></td>
-                                    <td>
-                                        <form method="POST">
-                                            <button type="submit" name="remover" class="btn btn-danger">Remover</button>
-                                        </form>
-                                    </td>
+                                    <td colspan="3">Nenhum mangá favorito selecionado!</td>
                                 </tr>
-                            <?php endforeach; ?>
+                            <?php else: ?>
+                                <?php foreach($userMangas as $manga): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($manga->getNome(), ENT_QUOTES, 'UTF-8') ?></td>
+                                        <td><?= htmlspecialchars($manga->getAvaliacao(), ENT_QUOTES, 'UTF-8') ?></td>
+                                        <td>
+                                            <form method="POST">
+                                                <input type="hidden" name="delete" value="true">
+                                                <input type="hidden" name="manga_id" value="<?= htmlspecialchars($manga->getId(), ENT_QUOTES, 'UTF-8') ?>">
+                                                <button type="submit" class="btn btn-danger">Remover</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

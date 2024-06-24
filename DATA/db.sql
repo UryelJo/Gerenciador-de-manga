@@ -8,7 +8,7 @@ USE `db`;
 CREATE TABLE `autor` (
     `id` int(11) NOT NULL AUTO_INCREMENT ,
     `nome` varchar(50) NOT NULL ,
-    `idade` int(11) NOT NULL ,
+    `idade` int(3) NOT NULL ,
     `excluido` TINYINT(1) DEFAULT 0 ,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;

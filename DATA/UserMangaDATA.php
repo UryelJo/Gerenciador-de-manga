@@ -4,9 +4,9 @@
     include_once '../DATA/Conexao.php';
     include_once '../MODEL/UserManga.php';
 
-    class UserManga{
+    class UserMangaDATA{
         public function SelectByIdUser(int $id_user){
-            $scriptSql = 'SELECT * FROM user_manga INNER JOIN manga ON user_manga.manga_id = manga.id WHERE user_manga.id_user=?;';
+            $scriptSql = 'SELECT * FROM user_manga INNER JOIN manga ON user_manga.manga_id = manga.id WHERE user_manga.user_id=?;';
 
             $conexao = Conexao::conectarComDB();
             $query = $conexao->prepare($scriptSql);
@@ -18,22 +18,55 @@
                 $mangaRelacionadoAoUser = new \MODEL\UserManga();
                 $mangaRelacionadoAoUser->setIdUser($registroUnico['user_id']);
                 $mangaRelacionadoAoUser->setIdManga($registroUnico['manga_id']);
-                $mangaRelacionadoAoUser->manga->setId($registroUnico['id']);
-                $mangaRelacionadoAoUser->manga->setNome($registroUnico['nome']);
-                $mangaRelacionadoAoUser->manga->setVolume($registroUnico['volume']);
-                $mangaRelacionadoAoUser->manga->setDescricao($registroUnico['descricao']);
-                $mangaRelacionadoAoUser->manga->setResumo($registroUnico['resumo']);
-                $mangaRelacionadoAoUser->manga->setAvaliacao($registroUnico['avaliacao']);
-                $mangaRelacionadoAoUser->manga->setGenero($registroUnico['genero']);
-                $mangaRelacionadoAoUser->manga->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
-                $mangaRelacionadoAoUser->manga->setUrlCapa($registroUnico['url_capa']);
-                $mangaRelacionadoAoUser->manga->setEditoraId($registroUnico['editora_id']);
-                $mangaRelacionadoAoUser->manga->setAutorId($registroUnico['autor_id']);
+                $mangaRelacionadoAoUser->setId($registroUnico['id']);
+                $mangaRelacionadoAoUser->setNome($registroUnico['nome']);
+                $mangaRelacionadoAoUser->setVolume($registroUnico['volume']);
+                $mangaRelacionadoAoUser->setDescricao($registroUnico['descricao']);
+                $mangaRelacionadoAoUser->setResumo($registroUnico['resumo']);
+                $mangaRelacionadoAoUser->setAvaliacao($registroUnico['avaliacao']);
+                $mangaRelacionadoAoUser->setGenero($registroUnico['genero']);
+                $mangaRelacionadoAoUser->setQuantidadesRequisitada($registroUnico['quantidades_requisitada']);
+                $mangaRelacionadoAoUser->setUrlCapa($registroUnico['url_capa']);
+                $mangaRelacionadoAoUser->setEditoraId($registroUnico['editora_id']);
+                $mangaRelacionadoAoUser->setAutorId($registroUnico['autor_id']);
 
                 $listaDeMangasFavoritos[] = $mangaRelacionadoAoUser;
             }
             
-            return isset($listaDeMangasFavoritos) ? $listaDeMangasFavoritos : NULL;;
+            return isset($listaDeMangasFavoritos) ? $listaDeMangasFavoritos : NULL;
+        }
+
+        public function AdicionarAosFavoritos(int $idUser, int $idManga){
+            $scriptSql = "INSERT INTO `user_manga` (`user_id`, `manga_id`) VALUES ('{$idUser}','{$idManga}');";
+
+            $conexao = Conexao::conectarComDB();
+            $resultadoCadastro = $conexao->query($scriptSql);
+            $conexao = Conexao::desconectarComDB();
+
+            return $resultadoCadastro;
+        }
+
+        public function RemoverDosFavoritos(int $idUser, int $idManga){
+            $scriptSql = "DELETE FROM user_manga WHERE user_id=? AND manga_id=?;";
+
+            $conexao = Conexao::conectarComDB();
+            $query = $conexao->prepare($scriptSql);
+            $resultadoDelecao = $query->execute(array($idUser , $idManga));
+            $conexao = Conexao::desconectarComDB();
+
+            return $resultadoDelecao;
+        }
+
+        public function MangaIsCadastrado(int $idUser, int $idManga){
+            $scriptSql = "SELECT * FROM db.user_manga WHERE user_id = ? AND manga_id = ?;";
+
+            $conexao = Conexao::conectarComDB();
+            $query = $conexao->prepare($scriptSql);
+            $query->execute(array($idUser, $idManga));
+            $registros = $query->fetchAll(\PDO::FETCH_ASSOC);
+            $conexao = Conexao::desconectarComDB();
+
+            return empty($registros) ? false : true;
         }
     }
 ?>

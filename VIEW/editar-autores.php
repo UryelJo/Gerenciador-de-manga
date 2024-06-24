@@ -67,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                             aria-describedby="helpId"
                             placeholder="Idade"
                             required
+                            maxlength="3"
                             value="<?php echo $autorSelecionado->getIdade() ?>"
                         />
                         <small id="helpId" class="form-text text-muted">A idade do Autor</small>
