@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                 Cadastrando
             </div>
             <div class="card-body row justify-content-center">
-                <form class="col-6">
+                <form class="col-6" method="POST">
                     <div class="mb-3">
                         <label for="input-nome" class="form-label"><strong>Nome</strong></label>
                         <input

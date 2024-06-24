@@ -12,6 +12,14 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 } else {
     echo 'No ID parameter found in URL.';
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
+
+    (new BUSINESS\MangaService())->Delete($_GET['id']);
+
+    header("Location: http://localhost:8080/Gerenciador-de-manga/VIEW/mangas.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,10 +55,13 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <p><strong>Quantidades Requisitada:</strong> <?php echo htmlspecialchars($mangaSelecionado->getQuantidadesRequisitada()); ?></p>
                     </div>
                 </div>
-                <div class="mt-3">
-                    <a href="editar-manga.php?id=<?php echo htmlspecialchars($mangaSelecionado->getId()); ?>" class="btn btn-primary">Editar</a>
-                    <a class="btn btn-danger">Deletar</a>
-                    <a href="tela-principal.php" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Voltar</a>
+                <div class="mt-3 row">
+                    <a href="editar-manga.php?id=<?php echo htmlspecialchars($mangaSelecionado->getId()); ?>" class="btn btn-primary ml-3">Editar</a>
+                    <form method="POST" class="ml-3">
+                        <input type="hidden" name="delete" value="true">
+                        <button type="submit" class="btn btn-danger">Deletar</button>
+                    </form>
+                    <a href="tela-principal.php" class="btn btn-secondary ml-3"><i class="fas fa-arrow-left"></i> Voltar</a>
                 </div>
                 <?php
                 } else {

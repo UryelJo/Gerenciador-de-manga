@@ -28,7 +28,7 @@
                 <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('mangas.php')">Mangás</button>
                 <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('editora.php')">Editoras</button>
                 <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('autores.php')">Autor</button>
-                <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('')">Favoritos</button>
+                <button class="btn btn-primary btn-block mb-2" onclick="window.location.replace('favoritos.php')">Favoritos</button>
             </div>
         </div>
     </div>

@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                 Editando : <?php echo $autorSelecionado->getNome() ?>
             </div>
             <div class="card-body row justify-content-center">
-                <form class="col-6">
+                <form class="col-6" method="POST">
                     <div class="mb-3">
                         <label for="input-nome" class="form-label"><strong>Nome</strong></label>
                         <input
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                             aria-describedby="helpId"
                             placeholder="Nome"
                             required
-                            value=" <?php echo $autorSelecionado->getNome() ?>"
+                            value="<?php echo $autorSelecionado->getNome() ?>"
                         />
                         <small id="helpId" class="form-text text-muted">O nome do Autor</small>
                     </div>
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['input-nome'])) {
                             aria-describedby="helpId"
                             placeholder="Idade"
                             required
-                            value=" <?php echo $autorSelecionado->getIdade() ?>"
+                            value="<?php echo $autorSelecionado->getIdade() ?>"
                         />
                         <small id="helpId" class="form-text text-muted">A idade do Autor</small>
                     </div>
